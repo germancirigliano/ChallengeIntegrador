@@ -1,0 +1,26 @@
+/*HEADER DE CARRITO*/
+.header-nav{
+  background-color: var(--gris-solid);
+  padding-inline: var(--spacing-128);
+  height: 14.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav__list{
+  display: flex;
+  gap: var(--spacing-68);
+  height: 3.1rem;
+  align-items: center;
+}
+
+.header-nav__list>li>a{
+  font-family: var(--alternative-font);
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 2.3em;
+  letter-spacing: 0em;
+  text-align: left;
+}
+/**/
