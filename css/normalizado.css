@@ -1,0 +1,59 @@
+@import url(./fuentes.css);
+@import url(./variables.css);
+
+/*Normalizado*/
+*, 
+*::before, 
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-family: var(--base-font);
+  /*font-size: 62.5%; /*Equivale  a 10px, es el 62,5 de 16*/
+  font-size: 10px; /*Mas facil que calcular un porcentaje de 16*/
+  color: #111;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2em;
+  color: inherit;
+  font-family: inherit;
+}
+
+header,
+footer{
+  font-family: var(--alternative-font);
+  color: white;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+p{
+  font-size: 1.8em;
+}
+
+.funkoshop-page-container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.some-title{
+  color: var(--negro-solid);
+  font-size: var(--font-xLarge);
+  font-family: var(--alternative-font);
+  font-weight: 500;
+  line-height: 3.522em;
+}
+
+.some-subtitle{
+  font-size: var(--font-medium);
+  font-family: var(--alternative-font);
+  font-weight: 500;
+  line-height: 3.522em;
+}
