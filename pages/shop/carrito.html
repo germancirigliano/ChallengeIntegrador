@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../../css/views/shop/carrito.css">
   <!-- Scripts -->
   <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
   <!-- Fin scripts-->
@@ -10,13 +11,13 @@
 </head>
 <body>
   <header> <!-- INICIO HEADER -->
-    <nav>
+    <nav class="header-nav">
       <picture>
         <a href="./../../index.html">
           <img src="./../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
         </a>
       </picture>
-      <ul>
+      <ul class="header-nav__list">
         <li>
           <a href="./shop.html">SHOP</a>
         </li>
@@ -32,7 +33,7 @@
       </ul>
     </nav>
   </header> <!-- FIN HEADER -->
-  <main>
+  <main class="funkoshop-page-container">
     <div class="carrito">
       <h2>
         CARRITO DE COMPRAS
@@ -132,8 +133,8 @@
   </main>
   <footer><!-- INICIO FOOTER -->
     <section>
-      <nav>
-        <ul>
+      <nav class="footer-nav">
+        <ul class="footer-nav__list">
           <li>
             <a href="./shop.html">SHOP</a>
           </li>
@@ -149,7 +150,9 @@
         </picture>
       </nav>
     </section>
-    <p>All rights reserved 2023 - Funkoshop & copy;</p>
+    <p class="footer-all-rights-reserved">
+      <span>All rights reserved 2023 - Funkoshop & copy;</span>
+    </p>
   </footer><!-- FIN FOOTER -->
 </body>
 </html>

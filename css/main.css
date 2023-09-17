@@ -1,0 +1,25 @@
+@import url(./normalizado.css);
+@import url(./variables.css);
+@import url(./components/header.css);
+@import url(./components/footer.css);
+
+/*Clases globales*/
+.funkoshop-page-container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.some-title{
+  color: var(--negro-solid);
+  font-size: var(--font-xLarge);
+  font-family: var(--alternative-font);
+  font-weight: 500;
+  line-height: 3.522em;
+}
+
+.some-subtitle{
+  font-size: var(--font-medium);
+  font-family: var(--alternative-font);
+  font-weight: 500;
+  line-height: 3.522em;
+}

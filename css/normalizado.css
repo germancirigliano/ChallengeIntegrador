@@ -1,6 +1,3 @@
-@import url(./fuentes.css);
-@import url(./variables.css);
-
 /*Normalizado*/
 *, 
 *::before, 
@@ -38,22 +35,3 @@ p{
   font-size: 1.8em;
 }
 
-.funkoshop-page-container{
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.some-title{
-  color: var(--negro-solid);
-  font-size: var(--font-xLarge);
-  font-family: var(--alternative-font);
-  font-weight: 500;
-  line-height: 3.522em;
-}
-
-.some-subtitle{
-  font-size: var(--font-medium);
-  font-family: var(--alternative-font);
-  font-weight: 500;
-  line-height: 3.522em;
-}
