@@ -1,0 +1,98 @@
+@import url(./fuentes.css);
+
+:root{
+
+  /*
+  Transparency hex table
+  90% -> E6
+  80% -> CC
+  70% -> B3
+  60% -> 99
+  50% -> 80
+  40% -> 66
+  30% -> 4D
+  20% -> 33
+  10% -> 1A
+  */
+
+
+  /*Palettes*/
+  --rosado-solid: #FF1654;
+  --rosado-900: #FF1654E6;
+  --rosado-800: #FF1654CC;
+  --rosado-700: #FF1654B3;
+  --rosado-600: #FF165499;
+  --rosado-500: #FF165480;
+  --rosado-400: #FF165466;
+  --rosado-300: #FF16544D;
+  --rosado-200: #FF165433;
+  --rosado-100: #FF16541A;
+
+  --negro-solid: #1F1F1F;
+  --negro-900: #1F1F1FE6;
+  --negro-800: #1F1F1FCC;
+  --negro-700: #1F1F1FB3;
+  --negro-600: #1F1F1F99;
+  --negro-500: #1F1F1F80;
+  --negro-400: #1F1F1F66;
+  --negro-300: #1F1F1F4D;
+  --negro-200: #1F1F1F33;
+  --negro-100: #1F1F1F1A;
+
+  --gris-solid: #30343F;
+  --gris-900: #4F4F4FE6;
+  --gris-800: #4F4F4FCC;
+  --gris-700: #4F4F4FB3;
+  --gris-600: #4F4F4F99;
+  --gris-500: #4F4F4F80;
+  --gris-400: #4F4F4F66;
+  --gris-300: #4F4F4F4D;
+  --gris-200: #4F4F4F33;
+  --gris-100: #4F4F4F1A;
+
+  --celeste-solid: #1D84B5;
+  --celeste-900: #1D84B5E6;
+  --celeste-800: #1D84B5CC;
+  --celeste-700: #1D84B5B3;
+  --celeste-600: #1D84B599;
+  --celeste-500: #1D84B580;
+  --celeste-400: #1D84B566;
+  --celeste-300: #1D84B54D;
+  --celeste-200: #1D84B533;
+  --celeste-100: #1D84B51A;
+
+  --colorado-solid: #FF3333;
+  --colorado-900: #FF3333E6;
+  --colorado-800: #FF3333CC;
+  --colorado-700: #FF3333B3;
+  --colorado-600: #FF333399;
+  --colorado-500: #FF333380;
+  --colorado-400: #FF333366;
+  --colorado-300: #FF33334D;
+  --colorado-200: #FF333333;
+  --colorado-100: #FF33331A;
+
+  /*Typography*/
+  --base-font: 'Inter', sans-serif;
+  --alternative-font: 'Raleway', sans-serif;
+
+  /*Font sizes*/
+  --font-display: 4.6em;
+  --font-jumbo: 3.8em;
+  --font-xLarge: 3em;
+  --font-large: 2.4em;
+  --font-medium: 1.8em;
+  --font-small: 1.6em;
+  --font-xsmall: 1.4em;
+
+  /*Spacings*/
+  --spacing-128: 12.8rem; /*128px*/
+  --spacing-68: 1.8rem; /*68px*/
+  --spacing-36: 3.6rem; /*36px*/
+  --spacing-28: 2.8rem; /*28px*/
+  --spacing-24: 2.4rem; /*24px*/
+  --spacing-20: 2rem; /*20px*/
+  --spacing-16: 1.6rem; /*16px*/
+  --spacing-12: 1.2rem; /*12px*/
+  --spacing-8: 0.8rem; /*8px*/
+}
