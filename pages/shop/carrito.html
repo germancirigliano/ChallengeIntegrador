@@ -35,78 +35,84 @@
   </header> <!-- FIN HEADER -->
   <main class="funkoshop-page-container">
     <div class="carrito">
-      <h2>
-        CARRITO DE COMPRAS
-      </h2>
-      <div class="cabecera">
-        <p>
-          DETALLE DE PRODUCTO
-        </p>
-        <p>
-          CANTIDAD
-        </p>
-        <p>
-          TOTAL
-        </p>
+      <div class="big-title-container big-title-container--alg_self_start">
+        <h2 class="big-title-container__title">
+          CARRITO DE COMPRAS
+        </h2>
       </div>
-      <div class="articulos">
-        <article>
-          <div class="item-description">
-            <picture class="item-description-image">
-              <img src="./../../img/star-wars/baby-yoda-1.webp" alt="Figura coleccionable de Funko de Grogu">
-            </picture>
-            <div class="item-description-text">
-              <div class="item-description-text-container">
-                <h2>BABY YODA BLUEBALL</h2>
-                <p>STAR WARS</p>
-              </div>
-              <div class="price-container">
-                <p>precio: $1799,99</p>
+      <div class="carrito__grilla">
+        <div class="cabecera carrito-styled-container">
+          <p>
+            DETALLE DE PRODUCTO
+          </p>
+          <p>
+            CANTIDAD
+          </p>
+          <p>
+            TOTAL
+          </p>
+        </div>
+        <div class="articulos">
+          <article class="articulos__articulo carrito-styled-container">
+            <div class="item-description">
+              <picture class="item-description-image">
+                <img src="./../../img/star-wars/baby-yoda-1.webp" height="100%" alt="Figura coleccionable de Funko de Grogu">
+              </picture>
+              <div class="item-description-text">
+                <div class="item-description-text-container">
+                  <h2>BABY YODA BLUEBALL</h2>
+                  <p>STAR WARS</p>
+                </div>
+                <div class="price-container">
+                  <p>precio: $1799,99</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="quantity-selector-container">
-            <input type="number" min="0"/>
-          </div>
-          <div class="total-price-container">
-            <p>$3599,98</p>
-          </div>
-          <div class="delete-button-container">
-            <button>
-              <img src="" alt="X de eliminar">
-            </button>
-          </div>
-        </article>
-        <article>
-          <div class="item-description">
-            <picture class="item-description-image">
-              <img src="./../../img/pokemon/pidgeotto-1.webp" alt="Figura coleccionable Funko de Pidgeotto">
-            </picture>
-            <div class="item-description-text">
-              <div class="item-description-text-container">
-                <h2>PIDGEOTTO</h2>
-                <p>POKEMON</p>
-              </div>
-              <div class="price-container">
-                <p>precio: $1799,99</p>
+            <div class="quantity-selector">
+              <input class="quantity-selector__input" type="number" min="0" max="9999" value="0"/>
+            </div>
+            <div class="total-price-container">
+              <p>$3599,98</p>
+            </div>
+            <div class="delete-button-container">
+              <button class="delete-button-container__button">
+                <img src="" alt="X de eliminar">
+              </button>
+            </div>
+          </article>
+          <article class="articulos__articulo carrito-styled-container">
+            <div class="item-description">
+              <picture class="item-description-image">
+                <img src="./../../img/pokemon/pidgeotto-1.webp" height="100%" alt="Figura coleccionable Funko de Pidgeotto">
+              </picture>
+              <div class="item-description-text">
+                <div class="item-description-text-container">
+                  <h2>PIDGEOTTO</h2>
+                  <p>POKEMON</p>
+                </div>
+                <div class="price-container">
+                  <p>precio: $1799,99</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="quantity-selector-container">
-            <input type="number" min="0"/>
-          </div>
-          <div class="total-price-container">
-            <p>$3599,98</p>
-          </div>
-          <div class="delete-button-container">
-            <button>
-              <img src="" alt="X de eliminar">
-            </button>
-          </div>
-        </article>
+            <div class="quantity-selector">
+              <input class="quantity-selector__input" type="number" min="0" max="9999" value="0"/>
+            </div>
+            <div class="total-price-container">
+              <p>$3599,98</p>
+            </div>
+            <div class="delete-button-container">
+              <button class="delete-button-container__button">
+                <img src="" alt="X de eliminar">
+              </button>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="resumen">
-        <h2>RESUMEN</h2>
+      <div class="big-title-container big-title-container--alg_self_end">
+        <h2 class="big-title-container__title">RESUMEN</h2>
+      </div>
+      <div class="carrito__resumen carrito-styled-container">
         <div class="resumen-table">
           <table>
             <tr>
