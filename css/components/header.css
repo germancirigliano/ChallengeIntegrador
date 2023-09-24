@@ -1,11 +1,21 @@
 /*HEADER DE CARRITO*/
+
+
+
 .header-nav{
   background-color: var(--gris-solid);
-  padding-inline: var(--spacing-128);
   height: 14.8rem;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+}
+@media (min-width: 450px) {
+  .header-nav{
+    justify-content: space-between;
+    flex-direction: row;
+    padding-inline: var(--spacing-128);
+  };
 }
 
 .header-nav__list{
