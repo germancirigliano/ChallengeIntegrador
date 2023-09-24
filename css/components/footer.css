@@ -2,11 +2,19 @@
 .footer-nav{
   display: flex;
   background-color: var(--gris-solid);
-  padding-inline: var(--spacing-128);
+  /* padding-inline: var(--spacing-128); */
   height: 34.3rem;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
+@media (min-width: 450px) {
+  .footer-nav{
+    padding-inline: var(--spacing-128);
+    justify-content: space-between;
+  }
+}
+
+
 
 .footer-nav__list{
   display: flex;
@@ -26,12 +34,17 @@
   background-color: var(--gris-solid);
   display: flex;
   justify-content: center;
-
   font-family: var(--alternative-font);
   font-size: 2em;
   font-weight: 500;
   line-height: 2.3em;
   letter-spacing: 0em;
   text-align: left;
+  padding: 1em;
+}
+@media (min-width: 450px) {
+  .footer-all-rights-reserved {
+    padding: 0;
+  }
 }
 /**/
