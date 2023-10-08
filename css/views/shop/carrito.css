@@ -30,6 +30,10 @@
   color: var(--negro-solid);
 }
 
+.carrito__grilla{
+  margin-block: var(--spacing-36);
+}
+
 
 .cabecera {
   text-align: center;
@@ -112,6 +116,8 @@
 .delete-button-container__button{
   width: 100%;
   overflow: hidden;
+  border: none;
+  background: transparent;
 }
 
 .carrito__resumen{
@@ -151,5 +157,6 @@
   letter-spacing: 0em;
   text-align: center;
   border: none;
+  cursor: pointer;
 }
 
