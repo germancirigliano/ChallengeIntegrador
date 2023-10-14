@@ -7,23 +7,19 @@ function validateInput(e) {
 }
 
 function agregaItem(e) {
-  console.log(e);
-  let targetInput = e.target.parentElement.parentElement.previousElementSibling;
+  let targetInput = e.target.closest(".quantity-selector").querySelector("input");
   targetInput.value = !targetInput.value ? 1 : Number(targetInput.value) + 1;
 }
 function restaItem(e) {
-  console.log(e);
-  let targetInput = e.target.parentElement.parentElement.previousElementSibling;
+  let targetInput = e.target.closest(".quantity-selector").querySelector("input");
   targetInput.value = !targetInput.value || Number(targetInput.value) <= 0 ? 0 : Number(targetInput.value) - 1;
 }
 
 quantityInputs.forEach((quantityInput) => {
   quantityInput.type = "number";
   quantityInput.value = 0;
-  quantityInput.maxLength = 4;
   quantityInput.addEventListener("input", validateInput);
 });
-
 addButtons.forEach((button) => {
   button.addEventListener("click", agregaItem);
 });
