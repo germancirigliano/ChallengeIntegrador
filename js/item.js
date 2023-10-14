@@ -4,6 +4,7 @@ const substractButtons = document.querySelectorAll(".substract-button");
 
 function validateInput(e) {
   if (isNaN(this.value) || this.value < 0 || this.value === "") this.value = ""; 
+  else if (this.value.length > 3) this.value = this.value.slice(0, 3);
 }
 
 function agregaItem(e) {
