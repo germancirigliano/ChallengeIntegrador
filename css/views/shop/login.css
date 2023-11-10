@@ -1,0 +1,39 @@
+@import url(./../../main.css);
+@import url(./../../variables.css);
+@import url(./../../fuentes.css);
+@import url(./../../normalizado.css);
+
+
+/* header login*/
+header {
+    background-color: var(--gris-solid);
+}
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navbar__logo{
+        max-width: 300px;
+    }
+}
+.navbar__menu{
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-20);
+}
+.navbar__link{
+    font: var(--font-medium);
+    padding: var(--spacing-8) var(--spacing-16);
+    display: inline-block ;
+    transition: background .3s ease-in-out; 
+}
+.navbar__link:hover {
+    background-color: var(--colorado-900);
+}
+
+/*FOOTER LOGIN*/
+.footer{
+    background-color: var(--gris-solid);
+    padding: var(spacing-68);
+}
