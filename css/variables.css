@@ -70,6 +70,9 @@
   --colorado-200: #FF333333;
   --colorado-100: #FF33331A;
 
+  --dark-bg-solid: #30343F;
+  --light-bg-solid: #FAFAFF;
+
   /*Typography*/
   --base-font: 'Inter', sans-serif;
   --alternative-font: 'Raleway', sans-serif;
@@ -82,10 +85,11 @@
   --font-medium: 1.8em;
   --font-small: 1.6em;
   --font-xsmall: 1.4em;
+  --font-xxsmall: 1.2em;
 
   /*Spacings*/
   --spacing-128: 12.8rem; /*128px*/
-  --spacing-68: 1.8rem; /*68px*/
+  --spacing-68: 6.8rem; /*68px*/
   --spacing-36: 3.6rem; /*36px*/
   --spacing-28: 2.8rem; /*28px*/
   --spacing-24: 2.4rem; /*24px*/
