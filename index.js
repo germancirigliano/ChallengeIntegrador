@@ -1,7 +1,9 @@
 import express from 'express';
-
+const app = express();
 const PORT = 8080;
 
-express().listen(PORT, () => {
-  console.log(`Listen in port ${PORT}`);
+app.use(express.static('public'));
+
+app.listen(PORT, () => {
+  console.log(`Listen on http://localhost:${PORT}`);
 });

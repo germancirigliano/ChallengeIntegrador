@@ -5,6 +5,8 @@
   "description": "Proyecto del grupo 2 de codo a codo 4.0 comision 23576",
   "main": "index.js",
   "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
