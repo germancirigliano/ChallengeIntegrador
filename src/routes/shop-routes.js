@@ -1,24 +1,16 @@
 import express from 'express';
-import ShopControllers  from '../controllers/shop-controllers';
+import { shopControllers } from '../controllers/shop-controllers.js';
 
-const router = express.Router();
-
+const shopRouter = express.Router();
 // GET -> /shop
-router.get("/shop", (req, res) => {
-
-});
+shopRouter.get("/", shopControllers.getShop);
 // - GET -> /shop/item/:id
-router.get("/shop/item/:id", (req, res) => {
-
-});
+shopRouter.get("/item/:id", shopControllers.getItem);
 // - POST -> /shop/item/:id/add
-router.post("/shop/item/:id/add", (req, res) => {
-  const body = req.body;
-});
+shopRouter.post("/item/:id/add", shopControllers.addItem);
 // - GET -> /shop/cart
-router.get("/shop/carrito", (req, res) => {
-});
+shopRouter.get("/carrito", shopControllers.getCarrito);
 // - POST -> /shop/cart
-router.post("/shop/carrito", (req, res) => {
-  const body = req.body;
-});
+shopRouter.post("/carrito", shopControllers.getCarritoData);
+
+export default shopRouter;
