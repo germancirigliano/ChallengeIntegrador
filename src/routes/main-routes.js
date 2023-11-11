@@ -1,6 +1,6 @@
 import express from 'express';
 /**Enrutador */
-const router = express.Router();
+const mainRouter = express.Router();
 
 // GET -> /home
 router.get("/home", (req, res) => {
@@ -19,4 +19,4 @@ router.get("/faqs", (req, res) => {
   res.send("Route for Faqs view");
 });
 
-export default router;
+export default mainRouter;

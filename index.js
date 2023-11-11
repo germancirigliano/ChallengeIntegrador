@@ -2,7 +2,7 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
-import router from './src/routes/main-routes.js';
+import mainRouter from './src/routes/main-routes.js';
 import shopRouter from './src/routes/shop-routes.js';
 import adminRouter from './src/routes/admin-routes.js'; 
 
@@ -17,7 +17,7 @@ app.set('views', __dirname + "/src/views");
 
 // middlewares
 app.use(express.static('public'));
-app.use("/", router);
+app.use("/", mainRouter);
 app.use("/shop", shopRouter);
 app.use("/admin", adminRouter);
 
