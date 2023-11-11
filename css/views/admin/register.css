@@ -1,59 +1,74 @@
 @import url(./../../main.css);
 
-
-.register-container{
+.register-container {
     max-width: 1200px;
     margin: 0 auto;
-    margin: var(--spacing-20) auto;
+    margin: var(--spacing-36) auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
-    gap: var(--spacing-20);
+    align-items: center;
+    gap: var(--spacing-36);
+
 }
 
-.register-title{  
-    text-align: center;
-    font-size: var(--font-display);
-}
-h1 { 
+.register-title {
     display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+    text-align: center;
+    font-family: var(--alternative-font);
+    font-size: var(--font-display);
+    color: #1F1F1F;
+    font-size: var(--font-display);
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.68px;
 }
 
-.register-subtitle{  
+.register-subtitle {
+    display: block;
     text-align: center;
+    font-family: var(--alternative-font);
     font-size: var(--font-jumbo);
+    color: #1F1F1F;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.28px;
 }
 
 .register-form {
+    max-width: 457.199px;
+    ;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    gap: var(--spacing-28);
 }
 
 .register-form-box--grid {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        gap: var(--spacing-16);
-        align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: var(--spacing-36);
+    align-items: center;
 }
 
-label{
-    font-size: var(--font-medium);
+label {
+    font-family: var(--base-font);
+    font-size: var(--font-large);
     font-weight: 600;
     letter-spacing: 1px;
+    color: #000;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.96px;
 }
 
-input{ 
+
+input {
+
+    width: 208px;
     padding: 1rem 0.5rem;
     border: none;
     flex-grow: 1;
@@ -63,9 +78,3 @@ input{
     padding-block: 1px;
     padding-inline: 2px;
 }
-
-
-
-
-
-
