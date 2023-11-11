@@ -1,0 +1,32 @@
+{
+  "name": "challengeintegrador",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Proyecto del grupo 2 de codo a codo 4.0 comision 23576",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/germancirigliano/ChallengeIntegrador.git"
+  },
+  "keywords": [
+    "codo",
+    "a",
+    "codo",
+    "grupo",
+    "2",
+    "nodejs",
+    "express"
+  ],
+  "author": "Grupo 2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/germancirigliano/ChallengeIntegrador/issues"
+  },
+  "homepage": "https://github.com/germancirigliano/ChallengeIntegrador#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
