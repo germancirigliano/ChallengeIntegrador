@@ -104,4 +104,5 @@
     background: url(../../../img/icons/delete_trash.svg) center no-repeat;
     background-size: 25px 25px;
     border: none;
+    cursor: pointer;
 }
