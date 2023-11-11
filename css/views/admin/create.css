@@ -1,0 +1,23 @@
+@import url(./../../main.css);
+
+.create_body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.create_main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex:1;
+}
+.create_section{
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    & h1{
+        margin: 10px 0;
+        font-size: 26px;
+    }
+}
