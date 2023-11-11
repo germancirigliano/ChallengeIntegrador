@@ -1,7 +1,7 @@
 {
   "name": "challengeintegrador",
   "type": "module",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "Proyecto del grupo 2 de codo a codo 4.0 comision 23576",
   "main": "index.js",
   "scripts": {
