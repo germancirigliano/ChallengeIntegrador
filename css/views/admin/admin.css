@@ -1,0 +1,107 @@
+@import url(./../../main.css);
+
+.admin_body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.admin_main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex:1;
+}
+.admin_section{
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.admin_section_search{
+    display: flex;
+    gap:5px;
+    align-items: center;
+    margin: 20px 0;
+}
+.lupa{
+    width: 32px;
+    height: 32px;
+    background: url(../../../img/icons/search_icon.svg)  center/cover no-repeat;
+}
+.input-search{
+    width:300px;
+    height: 30px;
+    border: 1px solid var(--negro-solid);
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.input-search::placeholder{
+    color: #B9B9B9;
+}
+
+.list_header{
+    display: flex;
+    justify-content: space-between;
+    & h1{
+        font-size: 22px;
+    }
+}
+.list_header_add{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    & h3{
+        font-weight: bold;
+        font-size: 15px;
+    }
+}
+.add{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../../../img/icons/add-icon.svg) center/cover no-repeat;
+    border: none;
+    margin-right: 12px;
+}
+.table{
+    width: 100%;
+    & thead{
+        height: 40px;
+        & th{
+            font-size: 14px;
+            font-weight: bold;
+            text-align: start;
+        }
+    }
+    & tbody{
+        height: 35px;
+        & td{
+            font-size: 14px;
+            text-align: start;
+        }
+        & td:nth-child(1){
+            text-align: center;
+        }
+        & td:nth-child(5){
+            text-align: center;
+        }
+        & td:nth-child(6){
+            text-align: center;
+        }
+    }
+}
+.edit{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../../../img/icons/edit_pencil.svg) center no-repeat;
+    background-size: 25px 25px;
+}
+
+.delete{
+    width: 25px;
+    height: 25px;
+    background: url(../../../img/icons/delete_trash.svg) center no-repeat;
+    background-size: 25px 25px;
+    border: none;
+}
