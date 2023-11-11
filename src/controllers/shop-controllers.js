@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 const shopControllers = {
   getShop: (req, res) => {
     res.send("Route for Shop View");
@@ -12,7 +14,12 @@ const shopControllers = {
     const body = req.body;
   },
   getCarrito: (req, res) => {
-    res.send("Route for carrito view");
+  //MISSION#4
+    // console.log(path.relative());
+    // res.send("Route for carrito view");
+
+  //MISSION#5
+    res.render("pages/shop/carrito");
   },
   getCarritoData: (req, res) => {
     const body = req.body;
