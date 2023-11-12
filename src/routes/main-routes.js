@@ -3,19 +3,19 @@ import express from 'express';
 const mainRouter = express.Router();
 
 // GET -> /home
-router.get("/home", (req, res) => {
+mainRouter.get("/home", (req, res) => {
   res.send("Route for Home view");
 });
 // - GET -> /contact
-router.get("/contact", (req, res) => {
+mainRouter.get("/contact", (req, res) => {
   res.send("Route for Contact view");
 });
 // - GET -> /about
-router.get("/about", (req, res) => {
+mainRouter.get("/about", (req, res) => {
   res.send("Route for About view");
 });
 // - GET -> /faqs
-router.get("/faqs", (req, res) => {
+mainRouter.get("/faqs", (req, res) => {
   res.send("Route for Faqs view");
 });
 
