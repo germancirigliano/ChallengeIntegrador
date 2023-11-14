@@ -1,13 +1,15 @@
 /**Index.js tiene que establecer la configuración del server */
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
 import express from 'express';
 import mainRouter from './src/routes/main-routes.js';
 import shopRouter from './src/routes/shop-routes.js';
 import adminRouter from './src/routes/admin-routes.js'; 
 
+dotenv.config()
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // set the view engine
