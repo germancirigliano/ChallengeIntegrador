@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { getSelectedFunkos } from '../services/funkos-carrito-service.js';
 
 const shopControllers = {
   getShop: (req, res) => {
@@ -17,9 +18,10 @@ const shopControllers = {
   //MISSION#4
     // console.log(path.relative());
     // res.send("Route for carrito view");
-
+    
   //MISSION#5
-    res.render("pages/shop/carrito");
+    const selectedFunkos = getSelectedFunkos();
+    res.render("pages/shop/carrito", {funkos: selectedFunkos});
   },
   getCarritoData: (req, res) => {
     const body = req.body;
