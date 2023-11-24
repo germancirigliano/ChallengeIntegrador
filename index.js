@@ -20,9 +20,9 @@ app.set('views', __dirname + "/src/views");
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
-app.use("/", mainRouter);
-app.use("/shop", shopRouter);
-app.use("/admin", adminRouter);
+app.use("/", mainRouter); // --> http://localhost:3000/
+app.use("/shop", shopRouter); // --> http://localhost:3000/shop
+app.use("/admin", adminRouter); // --> http://localhost:3000/admin
 
 // levantar servidor
 app.listen(PORT, () => {
