@@ -48,16 +48,14 @@
 
 .register-form-box--grid {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 3fr 1fr;
     gap: var(--spacing-36);
-    align-items: center;
+    align-items: stretch;
 }
 
-label {
+.register-form--label {
     font-family: var(--base-font);
     font-size: var(--font-large);
-    font-weight: 600;
-    letter-spacing: 1px;
     color: #000;
     font-style: normal;
     font-weight: 400;
@@ -65,16 +63,64 @@ label {
     letter-spacing: 0.96px;
 }
 
-
-input {
-
+.register-form--input {
+    font-family: var(--base-font);
+    font-size: var(--font-small);
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.64px;
     width: 208px;
     padding: 1rem 0.5rem;
     border: none;
     flex-grow: 1;
     border-bottom: 2px solid #ff3333;
-    font-size: var(--font-medium);
     writing-mode: horizontal-tb !important;
     padding-block: 1px;
     padding-inline: 2px;
+}
+
+.register-form__submission {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-16);
+}
+
+
+
+.register-form--btn {
+    max-width: 103px;
+    max-height: 40px;
+    font-size: var(--font-xxsmall);
+    padding: var(--spacing-12) var(--spacing-28);
+    background-color: var(--colorado-solid);
+    color: var(--light-bg-solid);
+    border: none;
+    cursor: pointer;
+}
+
+.register-form--accept {
+    display: flex;
+    align-items: center;
+    color: var(--negro-solid);
+    font-family: var(--base-font);
+    font-size: var(--font-medium);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: var(--spacing-8);
+}
+
+.register-form--term {
+    display: flex;
+    font-family: var(--base-font);
+    font-size: 18px;
+    align-items: center;
+    color: var(--celeste-solid);
+
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+
 }
