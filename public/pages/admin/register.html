@@ -35,31 +35,29 @@
       <p class="register-subtitle">Completa el formulario para ser parte del mundo de los Funkos</p>
       <form class="register-form" action="" method="post">
         <div class="register-form-box--grid">
-          <label for="nombre">Nombre:</label>
-          <input type="text" name="nombre" id="nombre" placeholder="John"><br>
+          <label class="register-form--label" for="nombre">Nombre:</label>
+          <input class="register-form--input" type="text" name="nombre" id="nombre" placeholder="John"><br>
         </div>
         <div class="register-form-box--grid">
-          <label for="apellido">Apellido:</label>
-          <input type="text" name="apellido" id="apellido" placeholder="Doe"><br>
+          <label class="register-form--label" for="apellido">Apellido:</label>
+          <input class="register-form--input" type="text" name="apellido" id="apellido" placeholder="Doe"><br>
         </div>
         <div class="register-form-box--grid">
-          <label for="mail">Email:</label>
-          <input type="email" name="mail" id="mail" placeholder="johndoe@correo.com"><br>
+          <label class="register-form--label" for="mail">Email:</label>
+          <input class="register-form--input" type="email" name="mail" id="mail" placeholder="johndoe@correo.com"><br>
         </div>
         <div class="register-form-box--grid">
-          <label for="contraseña">Contraseña:</label>
-          <input type="password" name="contraseña" id="contraseña" placeholder="*********"><br>
+          <label class="register-form--label" for="contraseña">Contraseña:</label>
+          <input class="register-form--input" type="password" name="contraseña" id="contraseña" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"><br>
         </div>
         <div class="register-form-box--grid">
-          <label for="confirmar">Repita Contraseña:</label>
-          <input type="password" name="confirmar" id="confirmar" placeholder="*********"><br>
+          <label class="register-form--label" for="confirmar">Repita Contraseña:</label>
+          <input class="register-form--input" type="password" name="confirmar" id="confirmar" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"><br>
         </div>
-        <div class="register-form-box--grid">
+        <div class="register-form__submission">
+          <input class="register-form--btn" type="submit" value="Registrar">
           <input type="checkbox" name="términos" id="términos">
-          <label for="términos">Acepto <a href="">Términos y Condiciones</a></label><br>
-        </div>
-        <div class="register-form-box--grid">
-          <input type="submit" value="Registrar"><br>
+          <label class="register-form--accept" for="términos">Acepto<a class="register-form--term" href="">Términos y Condiciones</a></label>
         </div>
       </form>
     </section>
