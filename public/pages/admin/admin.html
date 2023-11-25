@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="../../css/views/admin/admin.css">
+    <title>Admin | Funko Shop</title>
+</head>
+<body class="admin_body">
+    <header> <!-- INICIO HEADER -->
+        <nav class="header-nav">
+          <picture>
+            <a href="./../../index.html">
+              <img src="./../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
+            </a>
+          </picture>
+          <ul class="header-nav__list">
+            <li>
+              <a href="./../shop/shop.html">VER TIENDA</a>
+            </li>
+            <li>
+              <a href="./admin.html">ADMIN</a>
+            </li>
+            <li>
+              <a href="./../../index.html">SALIR</a>
+            </li>
+          </ul>
+        </nav>
+      </header> <!-- FIN HEADER -->
+      <main class="admin_main">
+        <section class="admin_section">
+            <div class="admin_section_search">
+                <span class="lupa"></span>
+                <input class="input-search" type="text" placeholder="código, nombre o categoria">
+            </div>
+            <div class="list_header">
+                <h1>LISTADO DE PRODUCTOS</h1>
+                <div class="list_header_add">
+                    <h3>AGREGAR</h3>
+                    <a class="add" href="./create.html"></a>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Código</th>
+                        <th>Nombre del Producto</th>
+                        <th>Categoria</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td>1</td>
+                        <td>STW001001</td>
+                        <td>Baby Yoda Blueball</td>
+                        <td>STAR WARS</td>
+                        <td class=""><a class="edit" href="./edit.html"></a></td>
+                        <td><button type="button" class="delete"></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+      </main>
+      <footer><!-- INICIO FOOTER -->
+        <section>
+          <nav class="footer-nav">
+            <ul class="footer-nav__list">
+              <li>
+                <a href="./../shop/shop.html">SHOP</a>
+              </li>
+              <li>
+                <a href="./register.html">REGISTRARSE</a>
+              </li>
+              <li>
+                <a href="./login.html">INGRESAR</a>
+              </li>
+              <li>
+                <a href="./../contact.html">CONTACTO</a>
+              </li>
+            </ul>
+            <picture>
+              <a href="./../../index.html"><img src="./../../img/branding/isotype.svg" alt="Isologotipo de la marca Funkoshop"></a>
+            </picture>
+          </nav>
+        </section>
+        <p class="footer-all-rights-reserved m-0"><span>All rights reserved 2023 - Funkoshop & copy;</span></p>
+      </footer><!-- FIN FOOTER -->
+</body>
+</html>

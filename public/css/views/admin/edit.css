@@ -1,0 +1,53 @@
+
+@import url(../../variables.css);
+@import url(../../fuentes.css);
+
+img{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+}
+
+header{
+    background-color: var(--dark-bg-solid);
+    padding: var(--spacing-36);
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-nav__logo{
+    max-width: 300px;
+}
+
+.header-nav__list{
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-20);
+    font-family: var(--alternative-font);
+    color: white;
+    list-style-type: none;
+}
+
+.header-nav-items__link{
+    font-size:var(--font-medium);
+    padding: var(--spacing-8) var(--spacing-16);
+    display: inline-block;
+    transition: background .3s ease-in-out
+    
+}
+
+.header-nav-items__link :hover {
+    background-color: var(--rosado-solid);
+}

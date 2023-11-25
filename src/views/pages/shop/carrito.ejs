@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../../css/views/shop/carrito.css">
+  <!-- Scripts -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+  <!-- Fin scripts-->
+  <title>Carrito | Funko Shop</title>
+</head>
+<body>
+  <%- include('./../../partials/header'); %>
+  <main class="funkoshop-page-container">
+    <div class="carrito">
+      <div class="big-title-container big-title-container--alg_self_start">
+        <h2 class="big-title-container__title">
+          CARRITO DE COMPRAS
+        </h2>
+      </div>
+      <div class="carrito__grilla">
+        <div class="cabecera carrito-styled-container">
+          <p>
+            DETALLE DE PRODUCTO
+          </p>
+          <p>
+            CANTIDAD
+          </p>
+          <p>
+            TOTAL
+          </p>
+        </div>
+        <div class="articulos">
+          <% funkos.forEach(function(funko) { %>
+            <article class="articulos__articulo carrito-styled-container">
+              <div class="item-description">
+                <picture class="item-description-image">
+                  <img src="<%=" ./../.."+ funko.img_front %>" height="118" alt="<%= funko.product_description %>">
+                </picture>
+                <div class="item-description-text">
+                  <div class="item-description-text-container">
+                    <h2>
+                      <%= funko.product_name %>
+                    </h2>
+                    <p>
+                      <%= funko.licence_name %>
+                    </p>
+                  </div>
+                  <div class="price-container">
+                    <p>
+                      <%= "precio: $" + funko.product_price %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="quantity-selector">
+                <input class="quantity-selector__input"/>
+                <div class="quantity-selector__buttons">
+                  <button class="add-button">+</button>
+                  <button class="substract-button">-</button>
+                </div>
+              </div>
+              <div class="total-price-container">
+                <p></p>
+              </div>
+              <div class="delete-button-container">
+                <button class="delete-button-container__button">
+                  <img src="./../../img/icons/delete-article.svg" alt="X de eliminar">
+                </button>
+              </div>
+            </article>
+            <% }) %>
+        </div>
+      </div>
+      <div class="big-title-container big-title-container--alg_self_end">
+        <h2 class="big-title-container__title">RESUMEN</h2>
+      </div>
+      <div class="carrito__resumen">
+        <div class="resumen-table carrito-styled-container">
+          <div>
+            <span>CANTIDAD DE ELEMENTOS</span>
+            <span>3</td>
+          </div>
+          <div>
+            <span>SUBTOTAL</span>
+            <span>$ 5399,97</span>
+          </div>
+          <div>
+            <span>ENVIO</span>
+            <span>$ 0,00</span>
+          </div>
+          <div class="resumen-table__total-row">
+            <span>TOTAL</span>
+            <span>$ 5399,97</span>
+          </div>
+        </div> 
+        <button class="carrito-resumen__button">IR A PAGAR</button>
+      </div>
+    </div>
+  </main>
+  <%- include('./../../partials/footer'); %>
+  <script src="./../../js/item.js"></script>
+</body>
+</html>
+
