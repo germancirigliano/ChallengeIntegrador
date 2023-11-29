@@ -1,53 +1,108 @@
+@import url(./../../main.css);
 
-@import url(../../variables.css);
-@import url(../../fuentes.css);
 
-img{
+.create_body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}a
+.create_main{
     width: 100%;
 }
-
-a{
-    text-decoration: none;
-    color: inherit;
-    font-family: inherit;
-}
-
-header{
-    background-color: var(--dark-bg-solid);
-    padding: var(--spacing-36);
-}
-
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.header-nav{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.header-nav__logo{
-    max-width: 300px;
-}
-
-.header-nav__list{
+.create_section{
+    width: 90%;
+    max-width: 600px;
     display: flex;
-    align-items: center;
-    gap: var(--spacing-20);
-    font-family: var(--alternative-font);
-    color: white;
-    list-style-type: none;
+    flex-direction: column;
+    & h1{
+        margin: 10px 0;
+        font-size: 26px;
+    }
+}
+div select{
+    width: 125px;
+    height: 25px;
+    border: 1px solid var(--negro-solid);
+    border-radius: 5px;
+    color:var(--negro-solid)
+}
+div select:focus{
+    color: var(--negro-solid);
+}
+div label{
+    font-size: 15px;
+    margin-right: 10px;
+}
+div input{
+    border: none;
+    border-bottom: 1px solid var(--colorado-solid);
+    outline: none;
+}
+div input::placeholder,textarea::placeholder{
+    color: var(--negro-solid);
+}
+.create_form_top{
+    display: flex;
+    margin-bottom: 20px;
+    gap: 30px;
+}
+.create_form_middle{
+    margin-bottom: 20px;
+    & input{
+        width: 200px;
+        height: 20px;
+    }
+}
+textarea{
+    width: 440px;
+    height: 125px;
+    padding: 5px;
+    margin-bottom: 20px;
 }
 
-.header-nav-items__link{
-    font-size:var(--font-medium);
-    padding: var(--spacing-8) var(--spacing-16);
-    display: inline-block;
-    transition: background .3s ease-in-out
-    
+.create_form_bottom{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    & div{
+        display: flex;
+    }
+    & .sku input{
+        width: 90px;
+    }
+    & .precio input{
+        width: 80px;
+    }
+    & .stock input{
+        width: 30px;
+    }
+    & .stock input::placeholder{
+        text-align: center;
+    }
+    & .descuento input{
+        width: 30px;
+    }
+    & .descuento input::placeholder{
+        text-align: center;
+    }
+    & .cuotas select{
+        width: 200px;
+    }
+    & .file{
+        border:none;
+        font-size: 10px;
+    }
+    & button{
+        width: 125px;
+        height: 30px;
+        border: none;
+        background-color: var(--colorado-solid);
+        color: var(--light-bg-solid);
+        cursor: pointer;
+        font-size: 11px;
+    }
 }
-
-.header-nav-items__link :hover {
-    background-color: var(--rosado-solid);
+.prod-modif-list{
+    display: inline-flex;
+    align-items:start
 }

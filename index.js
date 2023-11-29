@@ -4,7 +4,7 @@ import express from 'express';
 import { resolve } from 'path';
 import mainRouter from './src/routes/main-routes.js';
 import shopRouter from './src/routes/shop-routes.js';
-import adminRouter from './src/routes/admin-routes.js'; 
+import adminRouter from './src/routes/admin-routes.js';
 
 dotenv.config()
 const app = express();
@@ -23,6 +23,7 @@ app.use(express.static('public'));
 app.use("/", mainRouter); // --> http://localhost:3000/
 app.use("/shop", shopRouter); // --> http://localhost:3000/shop
 app.use("/admin", adminRouter); // --> http://localhost:3000/admin
+app.use("/edit",adminRouter);
 
 // levantar servidor
 app.listen(PORT, () => {
