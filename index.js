@@ -25,7 +25,6 @@ app.use("/", mainRouter); // --> http://localhost:8080/
 app.use("/shop", shopRouter); // --> http://localhost:8080/shop
 app.use("/admin", adminRouter); // --> http://localhost:8080/admin
 app.use("/auth", authRouter);// --> http://localhost:8080/admin
-app.use("/edit",adminRouter);
 
 // levantar servidor
 app.listen(PORT, () => {
