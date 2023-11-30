@@ -31,68 +31,45 @@
           </p>
         </div>
         <div class="articulos">
-          <article class="articulos__articulo carrito-styled-container">
-            <div class="item-description">
-              <picture class="item-description-image">
-                <img src="./../../img/star-wars/baby-yoda-1.webp" height="118" alt="Figura coleccionable de Funko de Grogu">
-              </picture>
-              <div class="item-description-text">
-                <div class="item-description-text-container">
-                  <h2>BABY YODA BLUEBALL</h2>
-                  <p>STAR WARS</p>
-                </div>
-                <div class="price-container">
-                  <p>precio: $1799,99</p>
-                </div>
-              </div>
-            </div>
-            <div class="quantity-selector">
-              <input class="quantity-selector__input"/>
-              <div class="quantity-selector__buttons">
-                <button class="add-button">+</button>
-                <button class="substract-button">-</button>
-              </div>
-            </div>
-            <div class="total-price-container">
-              <p>$3599,98</p>
-            </div>
-            <div class="delete-button-container">
-              <button class="delete-button-container__button">
-                <img src="./../../img/icons/delete-article.svg" alt="X de eliminar">
-              </button>
-            </div>
-          </article>
-          <article class="articulos__articulo carrito-styled-container">
-            <div class="item-description">
-              <picture class="item-description-image">
-                <img src="./../../img/pokemon/pidgeotto-1.webp" height="118" alt="Figura coleccionable Funko de Pidgeotto">
-              </picture>
-              <div class="item-description-text">
-                <div class="item-description-text-container">
-                  <h2>PIDGEOTTO</h2>
-                  <p>POKEMON</p>
-                </div>
-                <div class="price-container">
-                  <p>precio: $1799,99</p>
+          <% funkos.forEach(function(funko) { %>
+            <article class="articulos__articulo carrito-styled-container">
+              <div class="item-description">
+                <picture class="item-description-image">
+                  <img src="<%=" ./../.."+ funko.img_front %>" height="118" alt="<%= funko.product_description %>">
+                </picture>
+                <div class="item-description-text">
+                  <div class="item-description-text-container">
+                    <h2>
+                      <%= funko.product_name %>
+                    </h2>
+                    <p>
+                      <%= funko.licence_name %>
+                    </p>
+                  </div>
+                  <div class="price-container">
+                    <p>
+                      <%= "precio: $" + funko.product_price %>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="quantity-selector">
-              <input class="quantity-selector__input">
-              <div class="quantity-selector__buttons">
+              <div class="quantity-selector">
+                <input class="quantity-selector__input"/>
+                <div class="quantity-selector__buttons">
                   <button class="add-button">+</button>
                   <button class="substract-button">-</button>
+                </div>
               </div>
-            </div>
-            <div class="total-price-container">
-              <p>$1799,99</p>
-            </div>
-            <div class="delete-button-container">
-              <button class="delete-button-container__button">
-                <img src="./../../img/icons/delete-article.svg" alt="X de eliminar">
-              </button>
-            </div>
-          </article>
+              <div class="total-price-container">
+                <p></p>
+              </div>
+              <div class="delete-button-container">
+                <button class="delete-button-container__button">
+                  <img src="./../../img/icons/delete-article.svg" alt="X de eliminar">
+                </button>
+              </div>
+            </article>
+            <% }) %>
         </div>
       </div>
       <div class="big-title-container big-title-container--alg_self_end">

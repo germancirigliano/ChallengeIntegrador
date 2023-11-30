@@ -1,11 +1,10 @@
 import express from 'express';
+import { mainControllers } from './../controllers/main-controllers.js'
 /**Enrutador */
 const mainRouter = express.Router();
 
 // GET -> /home
-mainRouter.get("/home", (req, res) => {
-  res.send("Route for Home view");
-});
+mainRouter.get("/", mainControllers.getHome);
 // - GET -> /contact
 mainRouter.get("/contact", (req, res) => {
   res.send("Route for Contact view");
