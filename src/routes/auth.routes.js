@@ -1,5 +1,7 @@
 import express from 'express';
-const router = express.Router();
+import { authControllers } from '../controllers/auth-controllers';
+
+const authRouter = express.Router();
 // - GET -> /auth/login
 router.get("/auth/login",(req,res) => {
 
@@ -9,14 +11,11 @@ router.post("/auth/login",(req,res) => {
   const body = req.body;
 });
 // - GET -> /auth/register
-router.get("/auth/register",(req,res) => {
-
-});
+authRouter.get("/auth/register", authControllers.getRegister);
 // - POST -> /auth/register
-router.post("/auth/register",(req,res) => {
-
-});
+authRouter.post("/auth/register", authControllers.postRegister); 
 // - GET -> /auth/logout
 router.get("/auth/logout",(req,res) => {
 
 });
+export default authRouter;
