@@ -1,17 +1,16 @@
-import path from 'node:path';
+import { resolve } from 'path';
+const __dirname = resolve();
 
 const authControllers = {
+  getRegister: (req, res) => {
+    res.sendFile(__dirname+"/public/pages/admin/register.html");
+  },
+  postRegister: (rec, res) => {
+    res.send("Route for register post");
+  }
+}
 
-    getRegister: (req, res) => {
-        res.send("Route for register View");
-      },
-     postRegister: (rec, res)  => {
-        res.send("Route for register post");
-      },
-
-      }
-    
-    export { authControllers };
+export { authControllers };
     
     
 
