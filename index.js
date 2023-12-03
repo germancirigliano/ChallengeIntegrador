@@ -4,7 +4,8 @@ import express from 'express';
 import { resolve } from 'path';
 import mainRouter from './src/routes/main-routes.js';
 import shopRouter from './src/routes/shop-routes.js';
-import adminRouter from './src/routes/admin-routes.js'; 
+import adminRouter from './src/routes/admin-routes.js';
+import authRouter from './src/routes/auth.routes.js';
 
 dotenv.config()
 const app = express();
@@ -20,9 +21,10 @@ app.set('views', __dirname + "/src/views");
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
-app.use("/", mainRouter); // --> http://localhost:3000/
-app.use("/shop", shopRouter); // --> http://localhost:3000/shop
-app.use("/admin", adminRouter); // --> http://localhost:3000/admin
+app.use("/", mainRouter); // --> http://localhost:8080/
+app.use("/shop", shopRouter); // --> http://localhost:8080/shop
+app.use("/admin", adminRouter); // --> http://localhost:8080/admin
+app.use("/auth", authRouter);// --> http://localhost:8080/admin
 
 // levantar servidor
 app.listen(PORT, () => {

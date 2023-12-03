@@ -1,22 +1,26 @@
 import express from 'express';
-const router = express.Router();
-// - GET -> /auth/login
-router.get("/auth/login",(req,res) => {
+import { authControllers } from '../controllers/auth-controllers.js';
 
+const authRouter = express.Router();
+// - GET -> /auth/login
+authRouter.get("/login", (req, res) => {
+  
 });
+
 // - POST -> /auth/login
-router.post("/auth/login",(req,res) => {
+authRouter.post("/login", (req, res) => {
   const body = req.body;
 });
+
 // - GET -> /auth/register
-router.get("/auth/register",(req,res) => {
+authRouter.get("/register", authControllers.getRegister);
 
-});
 // - POST -> /auth/register
-router.post("/auth/register",(req,res) => {
+authRouter.post("/register", authControllers.postRegister);
 
-});
 // - GET -> /auth/logout
-router.get("/auth/logout",(req,res) => {
+authRouter.get("/logout", (req, res) => {
 
 });
+
+export default authRouter;
