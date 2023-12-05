@@ -54,7 +54,7 @@
                 </div>
               </div>
               <div class="quantity-selector">
-                <input class="quantity-selector__input"/>
+                <input value="<%= funko.dues %>" class="quantity-selector__input"/>
                 <div class="quantity-selector__buttons">
                   <button class="add-button">+</button>
                   <button class="substract-button">-</button>
@@ -77,13 +77,13 @@
       </div>
       <div class="carrito__resumen">
         <div class="resumen-table carrito-styled-container">
-          <div>
+          <div class="resumen-quantity">
             <span>CANTIDAD DE ELEMENTOS</span>
-            <span>3</td>
+            <span class="quantity">3</td>
           </div>
-          <div>
+          <div class="resumen-subtotal">
             <span>SUBTOTAL</span>
-            <span>$ 5399,97</span>
+            <span class="subtotal">$ 5399,97</span>
           </div>
           <div>
             <span>ENVIO</span>
@@ -91,7 +91,7 @@
           </div>
           <div class="resumen-table__total-row">
             <span>TOTAL</span>
-            <span>$ 5399,97</span>
+            <span class="total">$ 5399,97</span>
           </div>
         </div> 
         <button class="carrito-resumen__button">IR A PAGAR</button>
