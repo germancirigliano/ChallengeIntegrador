@@ -103,6 +103,26 @@ header {
   gap: var(--spacing-8);
 }
 
+.navbar__item {
+  position: relative;
+}
+
+.navbar__cart-count {
+  position: absolute;
+  top: -15%;
+  left: 70%;
+  color: var(--ligh-bg-solid);
+  background-color: var(--colorado-solid);
+  font-size: var(--font-xsmall);
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
 .submenu {
   display: none;
   width: 150px;
