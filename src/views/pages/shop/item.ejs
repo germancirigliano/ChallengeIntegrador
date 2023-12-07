@@ -3,59 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../css/views/shop/item.css">
-  <!-- Scripts -->
-  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
-  <!-- Fin scripts -->
+  <link rel="stylesheet" href="./../../../../public/css/views/shop/item.css">
   <title>Item | Funko Shop</title>
 </head>
 <body>
-  <header> <!-- INICIO HEADER -->
-    <nav class="navbar container">
-      <picture class="navbar__logo">
-        <a href="./../../index.html">
-          <img src="./../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-        </a>
-      </picture>
-      <ul class="navbar__menu">
-        <li class="navbar__item with-submenu">
-          <a class="navbar__link with-icon" href="./shop.html">SHOP<iconify-icon icon="tabler:chevron-down"></iconify-icon></a>
-          <ul class="submenu">
-            <li class="submenu__item">
-              <a class="submenu__link" href="">Remeras</a>
-            </li>
-            <li class="submenu__item">
-              <a class="submenu__link" href="">Llaveros</a>
-            </li>
-            <li class="submenu__item">
-              <a class="submenu__link" href="">Funkos</a>
-            </li>
-          </ul>
-        </li>
-        <li class="navbar__item with-submenu">
-          <a class="navbar__link" href="./../contact.html">CONTACTO</a>
-        </li>
-        <li class="navbar__item with-submenu">
-          <a class="navbar__link" href="./../admin/login.html">LOGIN</a>
-        </li>
-        <li class="navbar__item with-submenu">
-          <a class="navbar__cart" href="./carrito.html"><iconify-icon icon="tdesign:cart"></iconify-icon></a>
-          <span class="navbar__cart-count count-cart">0</span>
-        </li>
-      </ul>
-    </nav>
-  </header> <!-- FIN HEADER -->
+<%- include('./../partials/header') %>
   <main class="container"> <!-- INICIO MAIN -->
     <section>
       <article class="main__content">
-        <picture>
-          <img src="./../../img/star-wars/baby-yoda-1.webp" alt="Funko de baby yoda">
+        <picture class="card-item__cover">
+          <img class="card-item__img--front" src="./../../../../public/img/star-wars/baby-yoda-1.webp" alt="Funko de baby yoda">
+          <img class="card-item__img--back" src="./../../../../public/img/star-wars/baby-yoda-box.webp" alt="Funko de baby yoda en caja">
         </picture>
         <div>
-          <p class="main-text__licence">STAR WARS</p>
-          <h2 class="main-text__name">BABY YODA BLUEBALL</h2>
-          <p class="main-text__desc">Figura coleccionable de Baby Yoda (Grogu) - The Mandalorian Saga, edición limitada.</p>
-          <p class="main-text__price">$ 1799,99</p>
+          <p class="main-text__licence"><%= item.licence_name %></p>
+          <h2 class="main-text__name"><%= item.product_name</h2>
+          <p class="main-text__desc"><%= item.product_description %></p>
+          <p class="main-text__price"><%= item.product_price%></p>
           <div class="main-form quantity--selector">
             <input class="main-form__input quantity--selector__input" disabled type="" name="items" id="items" placeholder="0">
             <div class="main-form__masmenos quantity-selector__buttons">
@@ -131,34 +95,9 @@
       </div>
     </section>
   </main> <!-- FIN MAIN -->
-  <footer class="footer"><!-- INICIO FOOTER -->
-    <section>
-      <nav class="navbar container">
-        <ul class="navbar__item">
-          <li class="navbar__item">
-            <a class="navbar__link" href="./shop.html">SHOP</a>
-          </li>
-          <li class="navbar__item">
-            <a class="navbar__link" href="./../admin/register.html">REGISTRARSE</a>
-          </li>
-          <li class="navbar__item">
-            <a class="navbar__link" href="./admin/login.html">INGRESAR</a>
-          </li>
-          <li class="navbar__item">
-          <li class="navbar__item">
-            <a class="navbar__link" href="./../contact.html">CONTACTO</a>
-          </li>
-        </ul>
-        <picture>
-          <a href="./../../index.html"><img src="./../../img/branding/isotype.svg"
-              alt="Isologotipo de la marca Funkoshop"></a>
-        </picture>
-      </nav>
-    </section>
-    <p class="footer__copy">All rights reserved 2023 - Funkoshop & copy;</p>
-  </footer><!-- FIN FOOTER -->
-  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-  <script src="./../../js/glide.js"></script>
-  <script src="./../../js/items.js"></script>
+<%- include('../partials/footer') %>
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+  <script src="./../../../../public/js/glide.js"></script>
+  <script src="./../../../../public/js/items.js"></script>
 </body>
 </html>

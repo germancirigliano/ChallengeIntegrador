@@ -97,4 +97,16 @@
   cursor: pointer;
 }
 
+.card-item__img--back {
+  display: none;
+}
+
+.card-item__cover:hover .card-item__img--back {
+  display: block;
+}
+
+.card-item__cover:hover .card-item__img--front {
+  display: none;
+}
+
 /*FIN DE MAIN*/
