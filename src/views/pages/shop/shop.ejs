@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../../../../public/css/views/shop/shop.css">
+  <title>Shop | Funko Shop</title>
+</head>
+<body>
+  <%- include('./../partials/header') %>
+  <main class="container shop-main"> <!-- INICIO MAIN -->
+    <section class="shop-main__forms container">
+      <aside>
+        <form action="index.js">
+          <div class="form-item">
+              <label class="form-item__title" for="search">BUSCAR</label>
+              <input class="form-item__input" type="text" name="search" id="search" placeholder="item o categoria">
+          </div>
+          <div class="form-item">
+            <label class="form-item__title" for="order">ORDENAR POR</label>
+            <select class="form-item__input" name="order" id="order">
+              <option class="form-item__label" value="1" selected>Todos</option>
+              <option class="form-item__label" value="2">Mayor a menor</option>
+              <option class="form-item__label" value="3">Menor a mayor</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label class="form-item__title" for="min max">PRECIO</label>
+            <div class="form-item__minmax">
+              <label class="form-item__label" for="min">MIN</label>
+              <input class="form-item__precio" type="" name="min" id="min" placeholder="0">
+              <p>-</p>
+              <label class="form-item__label" for="min">MAX</label>
+              <input class="form-item__precio" type="" name="max" id="max" placeholder="0">
+            </div>
+          </div>
+          <div class="form-item">
+            <label class="form-item__title" for="">FILTRAR</label>
+            <div class="form-item__filter">
+             <input class="form-item__check" type="checkbox" name="nuevos" id="nuevos">
+             <label class="form-item__label" for="nuevos">NUEVOS</label>
+             <input class="form-item__check" type="checkbox" name="ofertas" id="ofertas">
+             <label class="form-item__label" for="ofertas">OFERTAS</label>
+             <input class="form-item__check" type="checkbox" name="especial" id="especial">
+             <label class="form-item__label" for="especial">EDICIÓN ESPECIAL</label>
+             <input class="form-item__check" type="checkbox" name="favoritos" id="favoritos">
+             <label class="form-item__label" for="favoritos">FAVORITOS</label>
+            </div>
+          </div>
+        </form>
+      </aside>
+    </section>
+    <section class="shop-main__item">
+      <ul class="shop-main__items">
+       <% .foreach(articulo => { %>
+        <li>
+          <article class="card-item">
+            <a class="card-item__link" href="./item.html">
+              <picture class="card-item__cover">
+                <span class="card-item__tag">NUEVO</span>
+                <img class="card-item__img--front" src="./../../img/star-wars/trooper-1.webp" alt="Funko de trooper">
+                <img class="card-item__img--back" src="./../../img/star-wars/trooper-box.webp" alt="Funko de trooper en caja">
+              </picture>
+              <div class="card-item__content">
+                <p class="card-item__licence">articulo.licence_name</p>
+                <h4 class="card-item__name">articulo.product_name</h4>
+                <p class="card-item__price">articulo.product_price</p>
+                <p class="card-item__promo">articulo.product_dues</p>
+              </div>
+            </a>
+          </article>
+        </li>
+        <% }) %>
+      </ul>
+      <ul class="shop-main__items">
+      <% .foreach(articulo=> { %>
+        <li>
+          <article class="card-item">
+            <a class="card-item__link" href="./pages/item.html">
+              <picture class="card-item__cover">
+                <span class="card-item__tag">NUEVO</span>
+                <img class="card-item__img--front" src="./../../img/star-wars/trooper-1.webp" alt="Funko de trooper">
+                <img class="card-item__img--back" src="./../../img/star-wars/trooper-box.webp" alt="Funko de trooper en caja">
+              </picture>
+              <div class="card-item__content">
+                <p class="card-item__licence">articulo.licence_name</p>
+                <h4 class="card-item__name">articulo.product_name</h4>
+                <p class="card-item__price">articulo.product_price</p>
+                <p class="card-item__promo">articulo.product_dues</p>
+              </div>
+            </a>
+          </article>
+        </li>
+        <% }) %>
+      </ul>
+      <ul class="shop-main__items">
+      <% .foreach(articulo=> { %>
+        <li>
+          <article class="card-item">
+            <a class="card-item__link" href="./item.html">
+              <picture class="card-item__cover">
+                <span class="card-item__tag">NUEVO</span>
+                <img class="card-item__img--front" src="./../../img/star-wars/trooper-1.webp" alt="Funko de trooper">
+                <img class="card-item__img--back" src="./../../img/star-wars/trooper-box.webp" alt="Funko de trooper en caja">
+              </picture>
+              <div class="card-item__content">
+                <p class="card-item__licence">articulo.licence_name</p>
+                <h4 class="card-item__name">articulo.product_name</h4>
+                <p class="card-item__price">articulo.product_price</p>
+                <p class="card-item__promo">articulo.product_dues</p>
+              </div>
+            </a>
+          </article>
+        </li>
+      <% }) %>
+      </ul>
+      <nav class="shop-main__navbar">
+        <ul class="navbar__shop">
+          <li class="navbar-shop__item">
+            <a class="navbar-shop__link" href=""><iconify-icon icon="material-symbols:chevron-left"></iconify-icon></a>
+          </li>
+          <li class="navbar-shop__item">
+            <a class="navbar-shop__link" href="">1</a>
+          </li>
+          <li class="navbar-shop__item">
+            <a class="navbar-shop__link" href="">2</a>
+          </li>
+          <li class="navbar-shop__item">
+            <span class="navbar-shop__link" href="">...</span>
+          </li>
+          <li class="navbar-shop__item">
+            <a class="navbar-shop__link" href="">9</a>
+          </li>
+          <li class="navbar-shop__item">
+            <a class="navbar-shop__link" href="">10</a>
+          </li>
+          <li class="navbar-shop__item">
+            <a class="navbar-shop__link" href=""><iconify-icon icon="material-symbols:chevron-right"></iconify-icon></a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </main> <!-- FIN MAIN -->
+  <%- include('../partials/footer') %>
+</body>
+</html>
