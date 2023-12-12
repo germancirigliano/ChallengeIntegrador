@@ -37,19 +37,24 @@
 
 /*INICIO HEADER INDEX*/
 
-img {
+/*img {
   width: 100%;
 }
+german esta clase interfiere con mi pagina, es muy generalista, esta tomando todas las img
+*/
+
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-header {
+/*header {
   background-color: var(--dark-bg-solid);
   padding: var(--spacing-36);
 }
+comentado por el mismo motivo que img :D 
+*/
 
 .navbar {
   display: flex;
