@@ -1,11 +1,5 @@
 import productModel from '../models/products.js';
 
-const createTable = async (req,res) => {
-  try {return await productModel.createTable();}
-  catch (e) {console.log('Problema al crear la tabla: Ya existe');}
-  finally{}
-}
-
 const getAllProducts = async (req,res) => {
   const data = await productModel.getAllProduct();
   res.send(data)
