@@ -1,7 +1,7 @@
 import {sequelize} from '../config/conn.js';
 import {Model, INTEGER, STRING, DECIMAL, DATE} from 'sequelize';
 
-class Product extends Model { }
+class Product extends Model {};
 
 
    Product.init(
@@ -16,11 +16,17 @@ class Product extends Model { }
      dues:{type:INTEGER,allowNull:true},
      image_front:{type:STRING,allowNull:false},
      image_back:{type:STRING,allowNull:false},
-     create_time:{type:DATE,allowNull:false},
-     licence_id:{type:INTEGER,allowNull:false
-    /*,references: {model: licence, key:'licence_id', } */},
-     category_id:{type:INTEGER,allowNull:false
-    /*,references: {model: category, key:'category_id', } */}
+     create_time:{type:DATE,allowNull:true},
+     licence_id:{type:INTEGER,allowNull:false,
+    references: {
+      model: 'licence',
+      key: 'licence_id'
+    }},
+     category_id:{type:INTEGER,allowNull:false, 
+      references: {
+        model: 'category' ,
+        key: 'category_id'
+      }}
    }, 
    { sequelize, 
      modelName: 'product',
@@ -30,11 +36,9 @@ class Product extends Model { }
  );
    // await Product.sync({force: false,alter:true}); //Crea la tabla si no existe y no hace nada si ya existe. Si existe, pero con valores diferentes le realiza los cambios para que coincida
 
-
-
 const getAllProduct = async() => {
   let data = await Product.findAll()
-  .then(product => product.map(product => product.dataValues))
+  .then(products => products.map(product => product.dataValues))
   // if (data.length===0) { data = Product.create({
   //    product_id: 1,
   //    product_name: 'Baby Yoda Blueball',
@@ -50,6 +54,12 @@ const getAllProduct = async() => {
   //    licence_id:3,
   //    category_id: 1
   //  }) }  ----------USAR ESTO SI NO CARGAN EL SCRIPT DE SQL----------
+  return data;
+}
+
+const getAllCategory = async() => {
+  let data = await Category.findAll()
+  .then(categories => categories.map(category => category.dataValues))
   return data;
 }
 

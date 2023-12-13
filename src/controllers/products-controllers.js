@@ -5,6 +5,11 @@ const getAllProducts = async (req,res) => {
   res.send(data)
 };
 
+const getAllCategory = async (req,res) => {
+  const data = await productModel.getAllCategory();
+  res.send(data)
+};
+
 const getProduct = async (req,res) => {
   const data = await productModel.getProduct(req.params.id);
   res.send(data);
@@ -28,6 +33,7 @@ const delProduct = async (req,res) => {
 
 const controller = {
   getAllProducts,
+  getAllCategory,
   getProduct,
   postProduct,
   updProduct,
