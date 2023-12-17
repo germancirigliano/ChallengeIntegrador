@@ -2,7 +2,6 @@ import {sequelize} from '../config/conn.js';
 import {Model, INTEGER, STRING} from 'sequelize';
 
 class Category extends Model {};
-
 Category.init(
    {
      category_id:{type:INTEGER,allowNull:false, primaryKey: true},
@@ -14,7 +13,7 @@ Category.init(
      tableName: 'category', 
      timestamps: false
    }
- );
+);
 
 const getAllCategory = async() => {
   let data = await Category.findAll()
@@ -51,4 +50,4 @@ const model = {
   delCategory
 }
 
-export default model;
+export {model, Category};

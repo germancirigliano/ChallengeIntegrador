@@ -16,8 +16,12 @@ const getProduct = async (req,res) => {
 }
 
 const postProduct = async (req,res) => {
-  const data = await productModel.postProduct(req.body);
-  res.send(data);
+  try { const data = await productModel.postProduct(req.body);
+        res.send(data);
+  } catch {
+    console.log("Ocurrio un error");
+    res.send("Error");
+  }
 }
 
 const updProduct = async (req,res) => {

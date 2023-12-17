@@ -52,4 +52,4 @@ const model = {
   delLicence
 }
 
-export default model;
+export {Licence, model};

@@ -1,10 +1,11 @@
 import express from 'express';
 import { mainControllers } from './../controllers/main-controllers.js'
+import initTable from '../middlewares/create-table.js';
 /**Enrutador */
 const mainRouter = express.Router();
 
 // GET -> /home
-mainRouter.get("/", mainControllers.getHome);
+mainRouter.get("/",[initTable], mainControllers.getHome);
 // - GET -> /contact
 mainRouter.get("/contact", (req, res) => {
   res.send("Route for Contact view");

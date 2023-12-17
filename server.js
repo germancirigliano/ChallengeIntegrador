@@ -9,7 +9,7 @@ import authRouter from './src/routes/auth.routes.js';
 import productsRouter from './src/routes/products-routes.js';
 import { dbConnect } from './src/config/conn.js';
 
-dbConnect();
+// dbConnect();
 
 dotenv.config()
 const app = express();
@@ -29,7 +29,7 @@ app.use("/", mainRouter); // --> http://localhost:8080/
 app.use("/shop", shopRouter); // --> http://localhost:8080/shop
 app.use("/admin", adminRouter); // --> http://localhost:8080/admin
 app.use("/auth", authRouter);// --> http://localhost:8080/admin
-app.use("/", productsRouter);// --> http://localhost:8080/
+app.use("/productsTest", productsRouter);// --> http://localhost:8080/
 
 // levantar servidor
 app.listen(PORT, () => {
