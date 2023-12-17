@@ -42,24 +42,7 @@ Product.init(
 );
 
 const getAllProduct = async() => {
-  let data = await Product.findAll()
-  .then(products => products.map(product => product.dataValues))
-  // if (data.length===0) { data = Product.create({
-  //    product_id: 1,
-  //    product_name: 'Baby Yoda Blueball',
-  //    product_description:'Figura funko coleccionable de la saga star wars & the mandalorian',
-  //    price: 1799,
-  //    stock: 5,
-  //    discount: 0,
-  //    sku: 'STW001001',
-  //    dues:0,
-  //    image_front:'p',
-  //    image_back:'s',
-  //    create_time:'2023-10-12 17:30:00',
-  //    licence_id:3,
-  //    category_id: 1
-  //  }) }  ----------USAR ESTO SI NO CARGAN EL SCRIPT DE SQL----------
-  return data;
+  return await Product.findAll();
 }
 
 const getAllCategory = async() => {
@@ -74,21 +57,6 @@ const getProduct = async(id) =>{
 }
 
 const postProduct = async (data) => {
-  // let producto = {
-  //   product_id: data.product_id,
-  //   product_name: data.product_name,
-  //   product_description: data.product_description,
-  //   price: data.product_price,
-  //   stock: data.stock,
-  //   discount: data.discount,
-  //   sku: data.product_sku,
-  //   dues: data.dues,
-  //   image_front: data.img_front,
-  //   image_back: data.img_back,
-  //   licence_id: data.licence_id //Numero que hace de clave foranea
-  //   category_id: data.category_id //Numero que hace de clave foranea
-  // }
-
   const funko = await Product.create(data);
   return funko;
 }
@@ -118,7 +86,7 @@ const loadInitialData = async (initialData) => {
 }
  
 
-const model = {
+const productModel = {
   getAllProduct,
   getProduct,
   postProduct,
@@ -128,4 +96,4 @@ const model = {
   loadInitialData
 }
 
-export default model;
+export default productModel;

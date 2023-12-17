@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { getSelectedFunkos } from '../services/funkos-carrito-service.js';
+import productsServices from '../services/products-services.js';
 
 const shopControllers = {
   getShop: (req, res) => {
@@ -14,14 +14,13 @@ const shopControllers = {
     const id = req.params.id;
     const body = req.body;
   },
-  getCarrito: (req, res) => {
-  //MISSION#4
-    // console.log(path.relative());
-    // res.send("Route for carrito view");
-    
-  //MISSION#5
-    const selectedFunkos = getSelectedFunkos();
-    res.render("pages/shop/carrito", {funkos: selectedFunkos});
+  getCarritoPage: async (req, res) => {
+    //Temporalmente uso getAllFunkos por que es lo que tenemos.
+    //Deberia haber algun lugar en donde seleccionen items y levantar
+    //los seleccionados pero eso no ocurre.
+    productsServices.getAllFunkos().then(funkos => {
+      res.render("pages/shop/carrito", {funkos: funkos});
+    }); 
   },
   getCarritoData: (req, res) => {
     const body = req.body;

@@ -6,10 +6,6 @@ import mainRouter from './src/routes/main-routes.js';
 import shopRouter from './src/routes/shop-routes.js';
 import adminRouter from './src/routes/admin-routes.js';
 import authRouter from './src/routes/auth.routes.js';
-import productsRouter from './src/routes/products-routes.js';
-import { dbConnect } from './src/config/conn.js';
-
-// dbConnect();
 
 dotenv.config()
 const app = express();
@@ -29,7 +25,6 @@ app.use("/", mainRouter); // --> http://localhost:8080/
 app.use("/shop", shopRouter); // --> http://localhost:8080/shop
 app.use("/admin", adminRouter); // --> http://localhost:8080/admin
 app.use("/auth", authRouter);// --> http://localhost:8080/admin
-app.use("/productsTest", productsRouter);// --> http://localhost:8080/
 
 // levantar servidor
 app.listen(PORT, () => {
