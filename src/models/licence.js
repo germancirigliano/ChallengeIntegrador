@@ -5,10 +5,10 @@ class Licence extends Model {};
 
 Licence.init(
    {
-     licence_id:{type:INTEGER,allowNull:false, primaryKey: true},
-     licence_name: {type: STRING, allowNull: false},
-     licence_description: {type: STRING, allowNull:false},  
-     licence_image: {type: STRING, allowNull:true}  
+     licence_id:{type:INTEGER,allowNull:false, primaryKey: true, autoIncrement: true},
+     licence_name: {type: STRING, allowNull: false, defaultValue: ""},
+     licence_description: {type: STRING, allowNull:false, defaultValue: ""},  
+     licence_image: {type: STRING, allowNull:true, defaultValue: ""}  
    }, 
    { sequelize, 
      modelName: 'licence',

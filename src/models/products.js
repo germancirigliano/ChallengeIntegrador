@@ -9,7 +9,7 @@ Product.init(
   {
     product_id: { type: INTEGER, allowNull: true, primaryKey: true },
     product_name: { type: STRING, allowNull: true },
-    product_description: { type: STRING, allowNull: true },
+    product_description: { type: STRING, allowNull: true , defaultValue: null},
     price: { type: DECIMAL(10, 2), allowNull: true , defaultValue: 0},
     stock: { type: INTEGER, allowNull: true, defaultValue: 0 },
     discount: { type: INTEGER, allowNull: true, defaultValue: 0 },
@@ -17,7 +17,7 @@ Product.init(
     dues: { type: INTEGER, allowNull: true, defaultValue: 0 },
     image_front: { type: STRING, allowNull: true, defaultValue: "" },
     image_back: { type: STRING, allowNull: true, defaultValue: "" },
-    create_time: { type: DATE, allowNull: true, defaultValue: null },
+    create_time: { type: DATE, allowNull: true },
     licence_id: {
       type: INTEGER, allowNull: true, defaultValue: null,
       references: {
@@ -78,14 +78,13 @@ const postProduct = async (data) => {
   //   product_id: data.product_id,
   //   product_name: data.product_name,
   //   product_description: data.product_description,
-  //   price: data.price,
+  //   price: data.product_price,
   //   stock: data.stock,
   //   discount: data.discount,
-  //   sku: data.sku,
+  //   sku: data.product_sku,
   //   dues: data.dues,
-  //   image_front: data.image_front,
-  //   image_back: data.image_back,
-  //   create_time: data.create_time
+  //   image_front: data.img_front,
+  //   image_back: data.img_back,
   //   licence_id: data.licence_id //Numero que hace de clave foranea
   //   category_id: data.category_id //Numero que hace de clave foranea
   // }
@@ -105,14 +104,17 @@ const delProduct = async(id) =>{
 }
 
 
-
-
 /**
 * Crea la primera tabla
 * @returns la respuesta
 */
 const createTableSequelize = async () => {
   return await Product.sequelize.sync();
+};
+
+const loadInitialData = async (initialData) => {
+  const arrayOfFunkos = initialData;
+  return await Product.bulkCreate(arrayOfFunkos, {validate: true});
 }
  
 
@@ -122,7 +124,8 @@ const model = {
   postProduct,
   updProduct,
   delProduct,
-  createTableSequelize
+  createTableSequelize,
+  loadInitialData
 }
 
 export default model;

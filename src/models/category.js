@@ -4,9 +4,9 @@ import {Model, INTEGER, STRING} from 'sequelize';
 class Category extends Model {};
 Category.init(
    {
-     category_id:{type:INTEGER,allowNull:false, primaryKey: true},
-     category_name: {type: STRING, allowNull: false},
-     category_description: {type: STRING, allowNull:true},    
+     category_id:{type:INTEGER,allowNull:false, primaryKey: true, autoIncrement: true},
+     category_name: {type: STRING, allowNull: false, defaultValue: ""},
+     category_description: {type: STRING, allowNull:true, defaultValue: ""},    
    }, 
    { sequelize, 
      modelName: 'category',
