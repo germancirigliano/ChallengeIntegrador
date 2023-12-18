@@ -64,6 +64,10 @@
 
 /*INICIO COLLECTION*/
 
+.contenido img {
+  width: 100%;
+}
+
 .collection {
   display: grid;
   grid-template-columns: repeat(2,1fr);

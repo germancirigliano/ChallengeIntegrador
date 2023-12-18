@@ -1,5 +1,9 @@
 @import url(./../../main.css);
 
+.contenido img {
+  width: 100%;
+}
+
 /*INICIO FORM*/
 
 .shop-main__forms {

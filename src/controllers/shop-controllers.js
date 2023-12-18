@@ -1,9 +1,11 @@
-import path from 'node:path';
+import { resolve } from 'path';
+const __dirname = resolve();
 import { getSelectedFunkos } from '../services/funkos-carrito-service.js';
 
 const shopControllers = {
   getShop: (req, res) => {
-    res.send("Route for Shop View");
+    console.log("La ruta relativa es, "+ __dirname);
+    res.render(__dirname,'views/pages/shop/shop.ejs')
   },
   getItem: (req, res) => {
     const id = req.params.id;
