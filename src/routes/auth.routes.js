@@ -3,14 +3,10 @@ import { authControllers } from '../controllers/auth-controllers.js';
 
 const authRouter = express.Router();
 // - GET -> /auth/login
-authRouter.get("/login", (req, res) => {
-  
-});
+authRouter.get("/login", authControllers.getLogin);
 
 // - POST -> /auth/login
-authRouter.post("/login", (req, res) => {
-  const body = req.body;
-});
+authRouter.post("/login", authControllers.postLogin);
 
 // - GET -> /auth/register
 authRouter.get("/register", authControllers.getRegister);
@@ -19,8 +15,6 @@ authRouter.get("/register", authControllers.getRegister);
 authRouter.post("/register", authControllers.postRegister);
 
 // - GET -> /auth/logout
-authRouter.get("/logout", (req, res) => {
-
-});
+authRouter.get("/logout", authControllers.getLogout);
 
 export default authRouter;

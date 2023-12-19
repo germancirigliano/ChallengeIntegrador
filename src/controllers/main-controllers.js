@@ -1,11 +1,15 @@
-import { resolve } from 'path';
-const __dirname = resolve();
+import LicenceService from '../services/licenceService'
+
 const mainControllers = {
-  getHome: (req, res) => {
-    // MISSION#5
-    //EN la mission 5 usaremos res.render para renderizar una plantill
-    console.log("La ruta relativa es," + __dirname);
-    res.render("pages/index.ejs",{});
+  getHome: async(req, res) => {
+    const licences = await LicenceService.getAllLicences();
+    res.render("index",{
+      collections: licences.data,
+      enableGlide: true
+    });
+  },
+  getContact: (req,res) => {
+    res.render("pages/shop/contact",{});
   }
 }
 

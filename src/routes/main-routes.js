@@ -5,10 +5,11 @@ const mainRouter = express.Router();
 
 // GET -> /home
 mainRouter.get("/", mainControllers.getHome);
+
+
+
 // - GET -> /contact
-mainRouter.get("/contact", (req, res) => {
-  res.send("Route for Contact view");
-});
+mainRouter.get("/contact", mainControllers.getContact);
 // - GET -> /about
 mainRouter.get("/about", (req, res) => {
   res.send("Route for About view");

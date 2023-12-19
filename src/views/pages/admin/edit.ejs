@@ -2,7 +2,7 @@
 <html lang="en" >
   <head>
     <title> Edit| Admin | Funkoshop</title>
-    <link rel="stylesheet" type="text/css" href="./../../css/views/admin/edit.css">
+    <link rel="stylesheet" type="text/css" href="/css/views/admin/edit.css">
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
 
   </head>
@@ -30,7 +30,7 @@
   <main class="create_main">
     <section class="create_section">
         <h1>EDITAR ITEM</h1>
-        <form method="#" action="#">
+        <form method="/admin/edit?_method=PUT" action="POST">
             <div class="create_form_top">
                 <div>
                     <label  for="">Categoria:</label>
@@ -96,29 +96,7 @@
     </section>
   </main>
     <footer>
-        <section>git status
-          
-            <nav class="footer-nav">
-                <ul class="footer-nav__list">
-                    <li>
-                        <a href="./pages/shop.html">SHOP</a>
-                    </li>
-                    <li>
-                        <a href="./pages/registrarse.html">REGISTRARSE</a>
-                    </li>
-                    <li>
-                        <a href="./pages/login.html">INGRESAR</a>
-                    </li>
-                    <li>
-                        <a href="./pages/contacto.html">CONTACTO</a>
-                    </li>
-                </ul>
-                <picture>
-                    <img src="../.././img/branding/isotype.svg" alt="isotipo de la marca funkoshop">
-                </picture>
-            </nav>
-        </section>
-        <p class="footer-all-rights-reserved">all rights reserved 2023 - funkoshop &copy;</p>
+        <%- include('./../../partials/footer')
     </footer>
 </body>
 </html>

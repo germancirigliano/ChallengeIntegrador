@@ -1,16 +1,28 @@
-import { resolve } from 'path';
-const __dirname = resolve();
 import { getSelectedFunkos } from '../services/funkos-carrito-service.js';
+import productos from '../services/productService.js';
 
 const shopControllers = {
-  getShop: (req, res) => {
-    console.log("La ruta relativa es, "+ __dirname);
-    res.render(__dirname,'views/pages/shop/shop.ejs')
+  getShop: async(req, res) => {
+    const products = await productos.getAllProduct();
+    const {data} = products;
+    res.render('/shop/shop',{products: data});
   },
-  getItem: (req, res) => {
+  getItem: async(req, res) => {
     const id = req.params.id;
-    res.send("Route for Shop Item View");
+    const item = await productos.getProduct(id);
+    const { data } = item;
+
+    if (!data[0]) {
+      res.status(404).send('El producto con el ID seleccionado no existe o fue eliminado');
+    }
+
+    res.render('/shop/item', {
+      item: data[0],
+      enableGlide: true
+    });
   },
+  
+  
   addItem: (req, res) => {
     //Esta ruta es para el boton de "Agregar al carrito" de la pagina "item"
     const id = req.params.id;
