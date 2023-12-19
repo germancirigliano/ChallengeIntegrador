@@ -6,7 +6,7 @@ class Licence extends Model {};
 Licence.init(
    {
      licence_id:{type:INTEGER,allowNull:false, primaryKey: true, autoIncrement: true},
-     licence_name: {type: STRING, allowNull: false, defaultValue: ""},
+     licence_name: {type: STRING(45), allowNull: false, defaultValue: ""},
      licence_description: {type: STRING, allowNull:false, defaultValue: ""},  
      licence_image: {type: STRING, allowNull:true, defaultValue: ""}  
    }, 

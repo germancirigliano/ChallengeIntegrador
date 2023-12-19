@@ -1,5 +1,5 @@
 import {sequelize, queryInterface} from '../config/conn.js';
-import {Model, INTEGER, STRING, DECIMAL, DATE} from 'sequelize';
+import {Model, INTEGER, STRING, DECIMAL, DataTypes  } from 'sequelize';
 import { Category } from "./category.js";
 import { Licence } from './licence.js';
 
@@ -7,17 +7,17 @@ class Product extends Model {};
 
 Product.init(
   {
-    product_id: { type: INTEGER, allowNull: true, primaryKey: true },
-    product_name: { type: STRING, allowNull: true },
+    product_id: { type: INTEGER, primaryKey: true},
+    product_name: { type: STRING(60), allowNull: true },
     product_description: { type: STRING, allowNull: true , defaultValue: null},
     price: { type: DECIMAL(10, 2), allowNull: true , defaultValue: 0},
     stock: { type: INTEGER, allowNull: true, defaultValue: 0 },
     discount: { type: INTEGER, allowNull: true, defaultValue: 0 },
-    sku: { type: STRING, allowNull: true, defaultValue: ""},
+    sku: { type: STRING(30), allowNull: true, defaultValue: ""},
     dues: { type: INTEGER, allowNull: true, defaultValue: 0 },
-    image_front: { type: STRING, allowNull: true, defaultValue: "" },
-    image_back: { type: STRING, allowNull: true, defaultValue: "" },
-    create_time: { type: DATE, allowNull: true },
+    image_front: { type: STRING(200), allowNull: true, defaultValue: "" },
+    image_back: { type: STRING(200), allowNull: true, defaultValue: "" },
+    create_time: { type: DataTypes.DATE, defaultValue: DataTypes.NOW},
     licence_id: {
       type: INTEGER, allowNull: true, defaultValue: null,
       references: {
@@ -81,9 +81,16 @@ const createTableSequelize = async () => {
 };
 
 const loadInitialData = async (initialData) => {
-  const arrayOfFunkos = initialData;
-  return await Product.bulkCreate(arrayOfFunkos, {validate: true});
+  const arrayOfFunkos = initialData.funkos, arrayOfCategories = initialData.categories, arrayOfLicences = initialData.licences;
+  await createInitialCategories(arrayOfCategories);
+  await createInitialLicences(arrayOfLicences);
+  return await createInitialFunkos(arrayOfFunkos);
+  
 }
+
+const createInitialCategories = async (initialCategories) => await Category.bulkCreate(initialCategories, {validate: true});
+const createInitialLicences = async (initialLicences) => await Licence.bulkCreate(initialLicences, {validate: true});
+const createInitialFunkos = async (initialFunkos) => await Product.bulkCreate(initialFunkos, {validate: true});
  
 
 const productModel = {

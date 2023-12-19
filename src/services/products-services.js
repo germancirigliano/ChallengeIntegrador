@@ -1,6 +1,6 @@
 import productModel from '../models/products.js';
 import { dbConnect, sequelize } from '../config/conn.js';
-import { initialData } from '../utils/utils.js';
+import { initialFunkos, InitialCategories, initialLicences } from '../utils/utils.js';
 
 /**
  * Crea la primera tabla conectándose a la DB (products)
@@ -18,9 +18,9 @@ const createTable = async () => {
 
 const loadInitialData = async () => {
   try {
-    return await productModel.loadInitialData(initialData);
+    return await productModel.loadInitialData({funkos: initialFunkos, categories: InitialCategories, licences: initialLicences});
   } catch (e) {
-    console.log("Error intentando agregar data inicial ==> ", e.errors );
+    console.log("Error intentando agregar data inicial ==> ", e );
   }
 }
 

@@ -1,4 +1,4 @@
-export const initialData = [
+export const initialFunkos = [
   {
     product_id: 1,
     // licence_name: "Pokemon",
@@ -10,8 +10,8 @@ export const initialData = [
     sku: "PKM001001",
     image_front: "/img/pokemon/pidgeotto-1.webp",
     image_back: "/img/pokemon/pidgeotto-box.webp",
-    // licence_id: 0,
-    // category_id: 0
+    licence_id: 1,
+    category_id: 1
   },
   {
     product_id: 2,
@@ -24,8 +24,8 @@ export const initialData = [
     sku: "STM001001",
     image_front: "/img/star-wars/trooper-1.webp",
     image_back: "/img/star-wars/trooper-box.webp",
-    // licence_id: 1,
-    // category_id: 0
+    licence_id: 2,
+    category_id: 1
   },
   {
     product_id: 3,
@@ -38,8 +38,8 @@ export const initialData = [
     sku: "STM001002",
     image_front: "/img/star-wars/bobbafeth-1.webp",
     image_back: "/img/star-wars/bobbafeth-box.webp",
-    // licence_id: 1,
-    // category_id: 0
+    licence_id: 2,
+    category_id: 1
   },
   {
     product_id: 4,
@@ -52,7 +52,30 @@ export const initialData = [
     sku: "STM001002",
     image_front: "/img/star-wars/luke-1.webp",
     image_back: "/img/star-wars/luke-box.webp",
+    licence_id: 2,
+    category_id: 1
+  }
+];
+
+export const InitialCategories = [
+  {
+    // category_id: 0,
+    category_name: "Coleccionables",
+    category_description: "Figuras coleccionables funkos"
+  }
+];
+
+export const initialLicences = [
+  {
+    // licence_id: 0,
+    licence_name: "Pokemon",
+    licence_description: "",
+    licence_image: ""
+  }
+  ,{
     // licence_id: 1,
-    // category_id: 0
+    licence_name: "Star Wars",
+    licence_description: "",
+    licence_image: ""
   }
 ];
