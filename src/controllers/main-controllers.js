@@ -1,9 +1,9 @@
-import LicenceService from '../services/licenceService'
+const LicenceService = require('../services/licenceService');
 
-const mainControllers = {
+module.exports = {
   getHome: async(req, res) => {
     const licences = await LicenceService.getAllLicences();
-    res.render("index",{
+    res.render('index',{
       collections: licences.data,
       enableGlide: true
     });
@@ -11,6 +11,4 @@ const mainControllers = {
   getContact: (req,res) => {
     res.render("pages/shop/contact",{});
   }
-}
-
-export { mainControllers };
+};

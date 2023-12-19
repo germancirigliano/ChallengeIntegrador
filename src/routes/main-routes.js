@@ -1,22 +1,24 @@
-import express from 'express';
-import { mainControllers } from './../controllers/main-controllers.js'
+const express = require('express');
 /**Enrutador */
-const mainRouter = express.Router();
+const router = express.Router();
+
+const {
+  getHome,
+  getContact
+} = require('../controllers/main-controllers');
 
 // GET -> /home
-mainRouter.get("/", mainControllers.getHome);
-
-
+router.get("/", getHome);
 
 // - GET -> /contact
-mainRouter.get("/contact", mainControllers.getContact);
+router.get("/contact", getContact);
 // - GET -> /about
-mainRouter.get("/about", (req, res) => {
+router.get("/about", (req, res) => {
   res.send("Route for About view");
 });
 // - GET -> /faqs
-mainRouter.get("/faqs", (req, res) => {
+router.get("/faqs", (req, res) => {
   res.send("Route for Faqs view");
 });
 
-export default mainRouter;
+module.exports = router;

@@ -1,8 +1,8 @@
-import ProductService from '../services/productService';
-import LicenceService from '../services/licenceService';
-import CategoryService from '../services/categoryService';
+const ProductService = require('../services/productService.js');
+const LicenceService = require('../services/licenceService.js');
+const CategoryService=  require('../services/categoryService.js');
 
-const adminController = {
+module.exports = {
   getAdmin: async (req,res) => {
     const {data} = await ProductService.getAllProducts();
     res.render('./admin/admin', {
@@ -50,5 +50,3 @@ const adminController = {
     res.redirect('/admin');
   },
 };
-
-export default adminController;

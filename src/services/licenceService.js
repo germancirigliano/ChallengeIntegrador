@@ -1,11 +1,9 @@
-import licenceModel from '../models/licence';
+const LicenceModel = require('../models/licence');
 
-const getAllLicences = async(req,res) =>{
-  return await licenceModel.getAllLicence();
+const getAllLicences = async() =>{
+  return await LicenceModel.getAllLicence();
 }
 
-const controller = {
-  getAllLicences
+module.exports = {
+  getAllLicences,
 }
-
-export default controller;

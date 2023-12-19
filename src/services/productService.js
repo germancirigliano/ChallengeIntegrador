@@ -1,4 +1,4 @@
-import ProductModel from '../models/products.js';
+const ProductModel =  require('../models/products.js');
 
 const getAllProducts = async ()=> {
   return await ProductModel.getAllProduct();
@@ -47,12 +47,10 @@ const delProduct = async (id) => {
 }
 
 
-const controller = {
+module.exports = {
   getAllProducts,
   getProduct,
   postProduct,
   updProduct,
   delProduct
-}
-
-export default controller;
+};

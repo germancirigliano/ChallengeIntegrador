@@ -1,4 +1,4 @@
-import conn from '../config/conn';
+const { conn } = require('../config/conn');
 
 const getAllCategory = async() => {
   try {
@@ -19,4 +19,6 @@ const getAllCategory = async() => {
   }
 }
 
-export default {getAllCategory};
+module.exports = {
+  getAllCategory
+};

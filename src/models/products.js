@@ -1,4 +1,4 @@
-import conn from '../config/conn';
+const { conn } = require('../config/conn');
 
 
 const getAllProduct = async() => {
@@ -108,13 +108,10 @@ const delProduct = async(id) =>{
   }
 }
 
-
-const model = {
+module.exports = {
   getAllProduct,
   getProduct,
   postProduct,
   updProduct,
   delProduct
-}
-
-export default model;
+};

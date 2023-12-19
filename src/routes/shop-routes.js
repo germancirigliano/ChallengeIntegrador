@@ -1,5 +1,5 @@
 import express from 'express';
-import { shopControllers } from '../controllers/shop-controllers.js';
+const shopControllers = require('../controllers/shop-controllers.js');
 
 const shopRouter = express.Router();
 // GET -> /shop

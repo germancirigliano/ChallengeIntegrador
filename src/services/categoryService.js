@@ -1,7 +1,9 @@
-import categoryModel from '../models/category';
+const CategoryModel = require('../models/category.js');
 
 const getAllCategory = async() => {
-  return await categoryModel.getAllCategory();
+  return await CategoryModel.getAllCategory();
 }
 
-export default {getAllCategory};
+module.exports = {
+  getAllCategory,
+}
