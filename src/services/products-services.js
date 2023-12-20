@@ -6,21 +6,16 @@ import { initialFunkos, InitialCategories, initialLicences } from '../utils/util
  * @returns Información de la DB sobre la tabla creada
  */
 const createTable = async () => {
-  try { 
-    return await productModel.createTableSequelize()
-    .catch((e) => console.log("ERROR: ", e)); 
-  } catch (e) { 
-    console.log("Problema al crear la tabla");
-    console.log(e);
-  }
+  return await productModel.createTableSequelize();
 }
 
 const loadInitialData = async () => {
   try {
     return await productModel.loadInitialData({funkos: initialFunkos, categories: InitialCategories, licences: initialLicences});
   } catch (e) {
-    console.log("Error intentando agregar data inicial ==> ", e );
+    return;
   }
+  
 }
 
 const getAllFunkos = async () => {
