@@ -6,52 +6,31 @@
   <title> LOGIN</title>
   <link rel="stylesheet" href="/css/views/admin/login.css  ">
   </head>
-<body>
-  <header> <!-- INICIO HEADER -->
-    <nav class="header-nav">
-      <picture class="navbar__logo">
-        <a href="./../../index.html">
-          <img src="./../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-        </a>
-      </picture>
-      <ul class="header-nav__list">
-        <li class="navbar__item">
-          <a class="navbar__link" href="./pages.html">VER TIENDA</a>
-        </li>
-        <li>
-          <a class="navbar__link" href="./admin.html">ADMIN</a>
-        </li   class="navbar__item">
-        <li>
-          <a class="navbar__link" href="./../../index.html">SALIR</a>
-        </li   class="navbar__item">
-      </ul>
-    </nav>
-  </header> <!-- FIN HEADER -->
-  <main class="funkoshop-page-container"> <!-- INICIO MAIN -->
+<body class="contenido">
+<%- include('./../../partials/header-german') %>
+  <main class="funkoshop-page-container">
   <section>
     <section class="login-container">
       <h1 class="login-title"> INGRESAR A MI CUENTA</h1>
       <div class="login-form-box--grid">
         <label for="mail">Email:</label>
         <input type="email" name="mail" id="mail" placeholder="johndoe@correo.com"><br>
-       </div>
+      </div>
       <div class="login-form-box--grid">
         <label for="contraseña">Contraseña:</label>
         <input type="password" name="contraseña" id="contraseña" placeholder="*********"><br>
-       </div>
+      </div>
       
        <div class="login-form__submission">
         <input class="login-form--btn" type="submit" value="Ingresar">
         <input type="checkbox" name="términos" id="términos">
         <label class="register-form--accept" for="términos">Recordarme<a class="register-form--term" href=""></a></label>
       </div><a href="">Olvidé mi contraseña</a>
-      </div>
-     </form>
     </section>
-  </main> <!-- FIN MAIN -->
-  <!-- INICIO FOOTER -->
-  <%- include('./../../partials/footer') %>
-  </footer><!-- FIN FOOTER -->
-  <script src="./../../js/item.js"></script></body>
+  </section>
+  </main>
+<%- include('./../../partials/footer-german') %>
+  <script src="./js/item.js"></script>
+</body>
 
 </html> 

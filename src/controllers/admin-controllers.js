@@ -23,19 +23,25 @@ module.exports = {
     await ProductService.postProduct(product,files);
     res.redirect('/admin');
   },
+  
   //averiguar de bulkCreate
+  bulkCreate:  async (req, res) => {
+    const products = req.body;
+    const result = await ProductService.postProduct(products.map(p => Object.values(p)));
+    res.send(result);
+  },
 
   getEditView: async(req,res) =>{
     const id = req.params.id;
     const {data: categories} = await CategoryService.getAllCategory();
-    const {dta: licences} = await LicenceService.getAllLicences();
-    const {data} = await ProductService.getProduct();
-    console.log(categories,licences);
-    res.render('./admin/edit', {
-      item: data[0],
-      categories,
-      licences
-    });
+    const {data: licences} = await LicenceService.getAllLicences();
+    const {data} = await ProductService.getProduct(id);
+    console.log(categories,licences,data);
+    // res.render('./admin/edit', {
+    //   item: data[0],
+    //   categories,
+    //   licences
+    // });
   },
   updProduct: async(req,res) =>{
     const id = req.params.id;

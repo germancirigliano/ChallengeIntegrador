@@ -6,87 +6,77 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
 
   </head>
-<body>
-  <header> <!-- INICIO HEADER -->
-    <nav class="header-nav">
-      <picture class="header-nav__logo">
-        <a href="./../../index.html">
-          <img src="./../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-        </a>
-      </picture>
-      <ul class="header-nav__list">
-        <li class="header-nav__items">
-          <a class="header-nav-items__link" href="./shop.html">VER TIENDA</a>
-        </li>
-        <li class="header-nav__items">
-          <a class="header-nav-items__link" href="./../contact.html">ADMIN</a>
-        </li>
-        <li class="header-nav__items">
-          <a class="header-nav-items__link" href="./../admin/login.html">SALIR</a>
-        </li>
-      </ul>
-    </nav>
-  </header> <!-- FIN HEADER -->
+<body class="contenido">
+<%- include('./../../partials/header-german') %>
   <main class="create_main">
     <section class="create_section">
         <h1>EDITAR ITEM</h1>
-        <form method="/admin/edit?_method=PUT" action="POST">
+        <form action="" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="create_form_top">
                 <div>
                     <label  for="">Categoria:</label>
                     <select class="disabled" name="" id="">
-                        <option class="disabled" value="" disabled selected>Figuras</option>
-                        <option value="">otro</option>
+                      <% categories.forEach((category,i)=>{ %>
+                        <option <% if(item.category_id ===i + 1) { %>selected<%} %> value="<%= i+1%>"><%= category.category_name%></option>
+                      <% }); %>
                     </select>
                 </div>
                 <div>
                     <label for="">Licencia:</label>
                     <select name="" id="">
-                        <option value="" disabled selected>Naruto Shippuden</option>
+                      <% licences.forEach((licence, i)=> { %>
+                        <option <% if (item.licence_id===i +1) { %>selected<% } %> value="<%= i+1%>"><%= licence.licence_name%></option>
+                      <% }); %>
                     </select>
                 </div>
             </div>
             <div class="create_form_middle">
                 <label for="">Nombre del producto:</label>
-                <input type="text" name="" id="" placeholder="Kakashi Hatake Shippuden Saga">
+                <input type="text" name="name" id="name" value="<%= item.product_name%>" required>
             </div>
-            <textarea name="" id="" placeholder="Descripción del producto"></textarea>
+            <textarea name="description" id="description" cols="30" rows="6" required><%= item.product_description%></textarea>
             <div class="create_form_bottom">
               <div class="sku">
-                <label for="">SKU:</label>
-                <input type="text" placeholder="SSK111AB001">
+                <label for="sku">SKU:</label>
+                <input type="text" name="sku" id="sku" value="<%= item.sku%>" required>
               </div>
               <div class="precio">
-                <label for="">Precio:</label>
-                <input type="text" placeholder="$ 0.000,00">
+                <label for="price">Precio:</label>
+                <span>$</span><input type="text" name="price" id="price" data-type="currency" value="<%= item.price %>">
               </div>
               <div class="stock">
                 <label for="">Stock:</label>
-                <input type="text" placeholder="0">
+                <input type="text" name="stock" id="stock" value="<%= item.stock %>" required><span>unidades</span>
               </div>
             </div>
             <div class="create_form_bottom">
                 <div class="descuento">
                     <label for="">Descuento:</label>
-                    <input type="text" placeholder="0%">
+                    <input type="text" name="discount" id="discount" value="<%= item.discount %>" required><span>%</span>
                 </div>
                 <div class="cuotas">
-                    <label for="">Cuotas:</label>
-                    <select name="" id="">
-                        <option value="">3 Cuotas sin interés</option>
+                    <label for="dues">Cuotas:</label>
+                    <select name="dues" id="dues">
+                      <option <% if (item.dues===0) { %>selected<% } %> value="0">Sin cuotas</option>
+                      <option <% if (item.dues===3) { %>selected<% } %> value="3">3 cuotas s/ interés</option>
+                      <option <% if (item.dues===6) { %>selected<% } %> value="6">6 cuotas s/ interés</option>
+                      <option <% if (item.dues===9) { %>selected<% } %> value="9">9 cuotas s/ interés</option>
+                      <option <% if (item.dues===12) { %>selected<% } %> value="12">12 cuotas s/ interés</option>
+                      <option <% if (item.dues===18) { %>selected<% } %> value="18">18 cuotas s/ interés</option>
+                      <option <% if (item.dues===24) { %>selected<% } %> value="24">24 cuotas s/ interés</option>
                     </select>
                 </div>
             </div>
             <div class="create_form_bottom">
                 <label for="">Imágenes:</label>
-                <input class="file" type="file">
+                <input class="file" type="file" name="image" id="img" multiple>
             </div>
             <div>
               <picture>
-                <img width=150 height=150 src="../../img/kakashi_hatake_front.png">
+                <img width=150 height=150 src="/img<%= item.image_front %>" alt="<%= item.product_name %>">
               </picture>
               <picture>
-                <img  width=150 height=150 src="../../img/kakashi_hatake_back.png" >
+                <img  width=150 height=150 src="/img<%= item.image_back %>" alt="<%= item.product_name %> en caja">
               </picture>
             </div>
             <div class="create_form_bottom">
@@ -95,8 +85,6 @@
         </form>
     </section>
   </main>
-    <footer>
-        <%- include('./../../partials/footer')
-    </footer>
+<%- include('./../../partials/footer-german') %>
 </body>
 </html>

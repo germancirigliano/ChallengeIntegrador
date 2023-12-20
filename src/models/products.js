@@ -22,9 +22,9 @@ const getAllProduct = async() => {
   }  
 }
 
-const getProduct = async(id) =>{
+const getProduct = async(params) =>{
   try {
-    const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product INNER JOIN category ON product.category_id = category.category_id) INNER JOIN licence ON product.licence_id = licence.licence_id WHERE ?;', id);
+    const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id WHERE ?;', params);
     const response = {
       isError: false,
       data: rows

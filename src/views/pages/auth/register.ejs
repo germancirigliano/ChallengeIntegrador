@@ -8,27 +8,8 @@
   <title>Registrarse | Funko Shop</title>
 </head>
 
-<body>
-  <header> <!-- INICIO HEADER -->
-    <nav class="header-nav">
-      <picture>
-        <a href="./../../index.html">
-          <img src="./../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-        </a>
-      </picture>
-      <ul class="header-nav__list">
-        <li>
-          <a href="./../shop/shop.html">VER TIENDA</a>
-        </li>
-        <li>
-          <a href="./admin.html">ADMIN</a>
-        </li>
-        <li>
-          <a href="./../../index.html">SALIR</a>
-        </li>
-      </ul>
-    </nav>
-  </header> <!-- FIN HEADER -->
+<body class="contenido">
+<%- include('./../../partials/header-german') %>
   <main> <!-- INICIO MAIN -->
     <section class="register-container">
       <h1 class="register-title">CREA TU CUENTA</h1>
@@ -62,9 +43,7 @@
       </form>
     </section>
   </main> <!-- FIN MAIN -->
-  <footer><!-- INICIO FOOTER -->
-    <%- include('./../../partials/footer') %>
-  </footer><!-- FIN FOOTER -->
+  <%- include('./../../partials/footer-german') %>
 </body>
 
 </html>

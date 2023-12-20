@@ -3,11 +3,12 @@ const Productos =  require('../services/productService');
 
 module.exports = {
   getShop: async(req, res) => {
-    const products = await Productos.getAllProduct();
+    const products = await Productos.getAllProducts();
     const {data} = products;
-    res.render('/shop/shop',{products: data});
+    res.render('./shop/shop',{products: data});
   },
   getItem: async(req, res) => {
+    const products = await Productos.getAllProducts();
     const id = req.params.id;
     const item = await Productos.getProduct(id);
     const { data } = item;
@@ -16,8 +17,9 @@ module.exports = {
       res.status(404).send('El producto con el ID seleccionado no existe o fue eliminado');
     }
 
-    res.render('/shop/item', {
+    res.render('./shop/item', {
       item: data[0],
+      items: products.data,
       enableGlide: true
     });
   },

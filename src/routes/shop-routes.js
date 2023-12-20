@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 const shopControllers = require('../controllers/shop-controllers.js');
 
 const shopRouter = express.Router();
@@ -13,4 +13,4 @@ shopRouter.get("/carrito", shopControllers.getCarrito);
 // - POST -> /shop/cart
 shopRouter.post("/carrito", shopControllers.getCarritoData);
 
-export default shopRouter;
+module.exports = shopRouter;

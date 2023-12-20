@@ -7,27 +7,8 @@
     <link rel="stylesheet" href="/css/views/admin/admin.css">
     <title>Admin | Funko Shop</title>
 </head>
-<body class="admin_body">
-    <header> <!-- INICIO HEADER -->
-        <nav class="header-nav">
-          <picture>
-            <a href="./../../index.html">
-              <img src="./../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
-            </a>
-          </picture>
-          <ul class="header-nav__list">
-            <li>
-              <a href="./../shop/shop.html">VER TIENDA</a>
-            </li>
-            <li>
-              <a href="./admin.html">ADMIN</a>
-            </li>
-            <li>
-              <a href="./../../index.html">SALIR</a>
-            </li>
-          </ul>
-        </nav>
-      </header> <!-- FIN HEADER -->
+<body class="admin_body contenido">
+<%- include('./../../partials/header-german') %>
       <main class="admin_main">
         <section class="admin_section">
             <div class="admin_section_search">
@@ -38,7 +19,7 @@
                 <h1>LISTADO DE PRODUCTOS</h1>
                 <div class="list_header_add">
                     <h3>AGREGAR</h3>
-                    <a class="add" href="./create.html"></a>
+                    <a class="add" href="/admin/create"></a>
                 </div>
             </div>
             <table class="table">
@@ -60,7 +41,7 @@
                         <td><%= product.product_name %></td>
                         <td><%= product.category_name %></td>
                         <td class=""><a class="edit" href="/admin/edit/<%= product.product_id %>"></a></td>
-                        <form action="/admin/delete/<%= product.product_id %>">
+                        <form action="/admin/delete/<%= product.product_id %>?_method=DELETE" method="POST">
                           <td><button type="submit" class="delete"></button></td>
                         </form>
                     </tr>
@@ -69,6 +50,6 @@
             </table>
         </section>
       </main>
-  <%- include('./../../partials/footer') %>
+<%- include('./../../partials/footer-german') %>
 </body>
 </html>

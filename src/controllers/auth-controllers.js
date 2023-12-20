@@ -3,7 +3,7 @@ const userCredentials = {
   password: 'pepe123'
 }
 
-const authControllers = {
+module.exports = {
   getLogin: (req,res) => res.render('./auth/login'),
   postLogin:  (req, res) => {
     const { email, password } = req.body;
@@ -32,10 +32,7 @@ getLogout: (req,res) => {
   req.session.isLogged = false;
   res.send('Sesión finalizada con éxito.');
 },
-}
-
-
-export { authControllers };
+};
     
     
 
