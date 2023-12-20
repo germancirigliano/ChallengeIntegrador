@@ -85,7 +85,6 @@ const loadInitialData = async (initialData) => {
   await createInitialCategories(arrayOfCategories);
   await createInitialLicences(arrayOfLicences);
   return await createInitialFunkos(arrayOfFunkos);
-  
 }
 
 const createInitialCategories = async (initialCategories) => await Category.bulkCreate(initialCategories, {validate: true});
