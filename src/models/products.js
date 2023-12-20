@@ -1,4 +1,4 @@
-import {sequelize, queryInterface} from '../config/conn.js';
+import { sequelize } from '../config/conn.js';
 import {Model, INTEGER, STRING, DECIMAL, DataTypes  } from 'sequelize';
 import { Category } from "./category.js";
 import { Licence } from './licence.js';

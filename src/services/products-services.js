@@ -1,5 +1,4 @@
 import productModel from '../models/products.js';
-import { dbConnect, sequelize } from '../config/conn.js';
 import { initialFunkos, InitialCategories, initialLicences } from '../utils/utils.js';
 
 /**

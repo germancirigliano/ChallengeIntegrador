@@ -8,9 +8,9 @@ export const sequelize = new Sequelize({
   dialect: 'mariadb',
   host: process.env.HOST,
   database: process.env.DB,
-  username: process.env.USER,
+  username: process.env.DBUSER,
   // password: process.env.DBPASS,
-  port: process.env.PORTDB,
+  port: process.env.DBPORT,
   pool: {max:10, min:0}
 });
 
