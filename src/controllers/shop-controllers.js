@@ -1,4 +1,3 @@
-//import { getSelectedFunkos } from '../services/funkos-carrito-service.js';
 const Productos =  require('../services/productService');
 
 module.exports = {
@@ -30,14 +29,9 @@ module.exports = {
     const id = req.params.id;
     const body = req.body;
   },
-  getCarrito: (req, res) => {
-  //MISSION#4
-    // console.log(path.relative());
-    // res.send("Route for carrito view");
-    
-  //MISSION#5
-    // const selectedFunkos = getSelectedFunkos();
-    // res.render("pages/shop/carrito", {funkos: selectedFunkos});
+  getCarrito: async (req, res) => {
+    const allFunkos = await Productos.getAllProducts();
+    res.render("./shop/carrito", {funkos: allFunkos.data});
   },
   getCarritoData: (req, res) => {
     const body = req.body;
