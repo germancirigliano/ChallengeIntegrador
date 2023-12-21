@@ -6,7 +6,6 @@ const userCredentials = {
 module.exports = {
   getLogin: (req,res) => res.render('./auth/login'),
   postLogin:  (req, res) => {
-    console.log("PASO POR POST DE LOGIN");
     const { email, password } = req.body;
     const emailValidation = userCredentials.email == email;
     const passwordValidation = userCredentials.password == password;
