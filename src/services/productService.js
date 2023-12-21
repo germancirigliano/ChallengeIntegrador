@@ -5,7 +5,7 @@ const getAllProducts = async ()=> {
 }
 
 const getProduct = async (id) => {
-  return await ProductModel.getProduct(id);
+  return await ProductModel.getProduct({product_id: id});
 }
 
 const postProduct = async (product,files) => {
