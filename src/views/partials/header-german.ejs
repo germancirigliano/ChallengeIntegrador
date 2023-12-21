@@ -1,4 +1,24 @@
 <header> <!-- INICIO HEADER -->
+    <% if (locals.isLogged) { %>
+      <nav class="navbar container">
+        <picture class="navbar__logo">
+          <a href="/">
+            <img src="./../../img/branding/logo_light_horizontal.svg" alt="Isologotipo de la marca Funkoshop">
+          </a>
+        </picture>
+        <ul class="navbar__menu">
+          <li class="navbar__item with-submenu">
+            <a class="navbar__link with-icon" href="/shop">VER TIENDA</a>
+          </li>
+          <li class="navbar__item with-submenu">
+            <a class="navbar__link" href="/admin">ADMIN</a>
+          </li>
+          <li class="navbar__item with-submenu">
+            <a class="navbar__link" href="/auth/logout">SALIR</a>
+          </li>
+        </ul>
+      </nav>
+    <% } else {%>
       <nav class="navbar container">
         <picture class="navbar__logo">
           <a href="/">
@@ -20,4 +40,5 @@
           </li>
         </ul>
       </nav>
+    <% } %>
 </header> <!-- FIN HEADER -->

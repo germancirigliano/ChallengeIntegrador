@@ -10,15 +10,15 @@ module.exports = {
   getItem: async(req, res) => {
     const products = await Productos.getAllProducts();
     const id = req.params.id;
-    const item = await Productos.getProduct(id);
-    const { data } = item;
-
-    if (!data[0]) {
-      res.status(404).send('El producto con el ID seleccionado no existe o fue eliminado');
-    }
+    const [item] = await Productos.getProduct(id);
+    const data = item;
+    console.log(data);
+    // if (!data[0]) {
+    //   res.status(404).send('El producto con el ID seleccionado no existe o fue eliminado');
+    // }
 
     res.render('./shop/item', {
-      item: data[0],
+      item: data,
       items: products.data,
       enableGlide: true
     });

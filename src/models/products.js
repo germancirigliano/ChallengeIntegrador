@@ -60,43 +60,28 @@ const postProduct = async (params) =>{
 const updProduct = async(params,id) =>{
   try {
     const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, id]);
-    const response = {
-      isError: false,
-      message: `El item fue modificado exitosamente.`,
-      status: rows
-    };
-
-    return response;
-  } catch (e) {
-    const error = {
-      isError: true,
-      message: `No pudimos modificar el item seleccionado, error: ${e}`
-    };
-
-    return error;
+    return rows;
+  } catch (error) {
+    return {
+      error: true,
+      message: 'Hemos encontrado un error: ' + error
+    }
   } finally {
     await conn.releaseConnection();
   }
 }
 
-const delProduct = async(id) =>{
+const delProduct = async(params) =>{
   try {
-    const [rows] = await conn.query('DELETE FROM product WHERE ?;', id);
-    const response = {
-      isError: false,
-      data: rows,
-      message: `Item borrado exitosamente.`
-    };
-
-    return response;
-  } catch (e) {
-    const error = {
-      isError: true,
-      message: `No pudimos insertar los valores seleccionados por: ${e}`
-    };
-
-    return error;
-  } finally {
+    const [rows] = await conn.query('DELETE FROM product WHERE ?;', params);
+    return rows;
+  } catch (error) {
+    return{  
+      error: true,
+      message: 'Hemos encontrado un error' + error
+    }
+    }
+   finally {
     await conn.releaseConnection();
   }
 }

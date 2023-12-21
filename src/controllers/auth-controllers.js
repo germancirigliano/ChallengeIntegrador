@@ -30,7 +30,8 @@ module.exports = {
 
 getLogout: (req,res) => {
   req.session.isLogged = false;
-  res.send('Sesión finalizada con éxito.');
+  res.redirect('/')
+
 },
 };
     

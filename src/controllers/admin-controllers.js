@@ -19,9 +19,35 @@ module.exports = {
     });
   },
   getCreate: async (req,res) => {
-    const productSchema = {
+    
+    const item = req.body;
+    const files = req.files;
+    await ProductService.postProduct(item, files);
+    res.redirect('/admin');
+  },
+  
+ 
+
+  getEditView: async(req,res) =>{
+    const {id} = req.params;
+    const {data: categories} = await CategoryService.getAllCategory();
+    const {data: licences} = await LicenceService.getAllLicences();
+    const [product] = await ProductService.getProduct(id);
+    res.render('./admin/edit', {
+      item: product,
+      categories,
+      licences
+    });
+  },
+  updProduct: async(req,res) =>{
+    const haveImages = req.files.length !==0
+    
+    const {id} = req.params;
+
+    const productSchema = haveImages
+    ? {
     product_name: req.body.name,
-    product_description:req.body.description,
+    product_description: req.body.description,
     price: Number(req.body.price),
     stock: Number(req.body.stock),
     discount: Number(req.body.discount),
@@ -32,41 +58,23 @@ module.exports = {
     licence_id: Number(req.body.licence),
     category_id: Number(req.body.category)
   }
-  await ProductModel.postProduct([Object.values(productSchema)])
-  res.redirect('/admin');
-  },
-  
-  //averiguar de bulkCreate
-  bulkCreate:  async (req, res) => {
-    const products = req.body;
-    const result = await ProductService.postProduct(products.map(p => Object.values(p)));
-    res.send(result);
-  },
-
-  getEditView: async(req,res) =>{
-    const {id} = req.params;
-    const {data: categories} = await CategoryService.getAllCategory();
-    const {data: licences} = await LicenceService.getAllLicences();
-    const [product] = await ProductService.getProduct(id);
-    console.log(product);
-    res.render('./admin/edit', {
-      item: product,
-      categories,
-      licences
-    });
-  },
-  updProduct: async(req,res) =>{
-    const id = req.params.id;
-    const product = req.body;
-
-    await ProductService.updProduct(product,id);
-    res.redirect('/admin');
+  :{
+    product_name: req.body.name,
+    product_description: req.body.description,
+    price: Number(req.body.price),
+    stock: Number(req.body.stock),
+    discount: Number(req.body.discount),
+    sku: req.body.sku,
+    dues: Number(req.body.dues),
+    licence_id: Number(req.body.licence),
+    category_id: Number(req.body.category)
+  }
+  await ProductModel.updProduct(productSchema,{product_id: id})
+  res.redirect('/shop')
   },
   delProduct: async(req,res) =>{
-    const {id} = req.body;
-    res.send('Quieres borrar el item: ' + id)
-    // const id = req.params.id;
-    // await ProductService.delProduct(id);
-    // res.redirect('/admin');
+    const {id} = req.params;
+    await ProductService.delProduct(id);
+    res.redirect('/admin');
   },
 };

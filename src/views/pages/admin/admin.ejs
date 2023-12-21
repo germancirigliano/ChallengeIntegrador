@@ -41,7 +41,7 @@
                         <td><%= product.product_name %></td>
                         <td><%= product.category_name %></td>
                         <td class=""><a class="edit" href="/admin/edit/<%= product.product_id %>"></a></td>
-                        <form  method="post" action="/admin/delete/<%= product.product_id %>?_method=DELETE" enctype="application/x-www-form-urlencoded">
+                        <form  method="POST" action="/admin/delete/<%= product.product_id %>?_method=DELETE" enctype="application/x-www-form-urlencoded">
                           <td><button type="submit" class="delete"></button></td>
                         </form>
                     </tr>
