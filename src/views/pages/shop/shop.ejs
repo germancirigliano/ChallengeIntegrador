@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../../../../public/css/views/shop/shop.css">
+  <link rel="stylesheet" href="/css/views/shop/shop.css">
   <title>Shop | Funko Shop</title>
 </head>
-<body>
-  <%- include('./../partials/header') %>
+<body class="contenido">
+  <%- include('./../../partials/header-german') %>
   <main class="container shop-main"> <!-- INICIO MAIN -->
     <section class="shop-main__forms container">
       <aside>
-        <form action="index.js">
+        <form action="">
           <div class="form-item">
               <label class="form-item__title" for="search">BUSCAR</label>
               <input class="form-item__input" type="text" name="search" id="search" placeholder="item o categoria">
@@ -52,62 +52,20 @@
     </section>
     <section class="shop-main__item">
       <ul class="shop-main__items">
-       <% .foreach(articulo => { %>
+      <% products.forEach(product => { %>
         <li>
           <article class="card-item">
-            <a class="card-item__link" href="./item.html">
+            <a class="card-item__link" href="/shop/item/<%= product.product_id%>">
               <picture class="card-item__cover">
                 <span class="card-item__tag">NUEVO</span>
-                <img class="card-item__img--front" src="./../../img/star-wars/trooper-1.webp" alt="Funko de trooper">
-                <img class="card-item__img--back" src="./../../img/star-wars/trooper-box.webp" alt="Funko de trooper en caja">
+                <img class="card-item__img--front" src="../../img<%= product.image_front%>" alt="Funko de trooper">
+                <img class="card-item__img--back" src="../../img<%= product.image_back%>" alt="Funko de trooper en caja">
               </picture>
               <div class="card-item__content">
-                <p class="card-item__licence">articulo.licence_name</p>
-                <h4 class="card-item__name">articulo.product_name</h4>
-                <p class="card-item__price">articulo.product_price</p>
-                <p class="card-item__promo">articulo.product_dues</p>
-              </div>
-            </a>
-          </article>
-        </li>
-        <% }) %>
-      </ul>
-      <ul class="shop-main__items">
-      <% .foreach(articulo=> { %>
-        <li>
-          <article class="card-item">
-            <a class="card-item__link" href="./pages/item.html">
-              <picture class="card-item__cover">
-                <span class="card-item__tag">NUEVO</span>
-                <img class="card-item__img--front" src="./../../img/star-wars/trooper-1.webp" alt="Funko de trooper">
-                <img class="card-item__img--back" src="./../../img/star-wars/trooper-box.webp" alt="Funko de trooper en caja">
-              </picture>
-              <div class="card-item__content">
-                <p class="card-item__licence">articulo.licence_name</p>
-                <h4 class="card-item__name">articulo.product_name</h4>
-                <p class="card-item__price">articulo.product_price</p>
-                <p class="card-item__promo">articulo.product_dues</p>
-              </div>
-            </a>
-          </article>
-        </li>
-        <% }) %>
-      </ul>
-      <ul class="shop-main__items">
-      <% .foreach(articulo=> { %>
-        <li>
-          <article class="card-item">
-            <a class="card-item__link" href="./item.html">
-              <picture class="card-item__cover">
-                <span class="card-item__tag">NUEVO</span>
-                <img class="card-item__img--front" src="./../../img/star-wars/trooper-1.webp" alt="Funko de trooper">
-                <img class="card-item__img--back" src="./../../img/star-wars/trooper-box.webp" alt="Funko de trooper en caja">
-              </picture>
-              <div class="card-item__content">
-                <p class="card-item__licence">articulo.licence_name</p>
-                <h4 class="card-item__name">articulo.product_name</h4>
-                <p class="card-item__price">articulo.product_price</p>
-                <p class="card-item__promo">articulo.product_dues</p>
+                <p class="card-item__licence"><%= product.licence_name%></p>
+                <h4 class="card-item__name"><%= product.product_name%></h4>
+                <p class="card-item__price"><%= product.price%></p>
+                <p class="card-item__promo"><%= product.dues%> CUOTAS SIN INTERÉS</p>
               </div>
             </a>
           </article>
@@ -141,6 +99,6 @@
       </nav>
     </section>
   </main> <!-- FIN MAIN -->
-  <%- include('../partials/footer') %>
+  <%- include('./../../partials/footer-german') %>
 </body>
 </html>

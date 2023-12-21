@@ -1,5 +1,9 @@
 @import url(./../../main.css);
 
+.contenido img {
+  width: 100%;
+}
+
 /*INICIO FORM*/
 
 .shop-main__forms {
@@ -68,20 +72,23 @@ input[type=checkbox] {
 /*INICIO ITEMS*/
 
 .shop-main {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: start;
-  margin-top: 60px;
+  display: flex;
+  gap: var(--spacing-28);
+  font-family: var(--base-font);
+  margin: var(--spacing-68) auto;
 }
 
 .shop-main__item {
-  width: 980px;
-  height: 1700px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--spacing-36);
 }
 
 .shop-main__items {
-  display: flex;
-  margin-bottom: 36px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-28);
 }
 
 .card-item {

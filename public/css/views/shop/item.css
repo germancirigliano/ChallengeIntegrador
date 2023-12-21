@@ -3,6 +3,10 @@
 
 /*INICIO DE MAIN*/
 
+.contenido img {
+  width: 100%;
+}
+
 .main__content {
   display: grid;
   grid-template-columns: 1fr 1fr;

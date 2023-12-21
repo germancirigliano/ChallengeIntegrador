@@ -1,16 +1,24 @@
-import express from 'express';
-import { authControllers } from '../controllers/auth-controllers.js';
+const express = require('express');
+const authControllers = require('../controllers/auth-controllers.js');
+const validateInput = require('../middlewares/validator');
+const { body } = require('express-validator');
+
+const loginValidation = [
+  body('email')
+  .isEmail()
+  .withMessage('Necesito que ingrese un correo válido'),
+  body('password')
+   .isLength({ min: 6})
+   .isAlphanumeric()
+   .withMessage('La contraseña debe tener al menos 6 caracteres y contener letras y números.')
+];
 
 const authRouter = express.Router();
 // - GET -> /auth/login
-authRouter.get("/login", (req, res) => {
-  
-});
+authRouter.get("/login", authControllers.getLogin);
 
 // - POST -> /auth/login
-authRouter.post("/login", (req, res) => {
-  const body = req.body;
-});
+authRouter.post("/login", loginValidation, validateInput,authControllers.postLogin);
 
 // - GET -> /auth/register
 authRouter.get("/register", authControllers.getRegister);
@@ -19,8 +27,6 @@ authRouter.get("/register", authControllers.getRegister);
 authRouter.post("/register", authControllers.postRegister);
 
 // - GET -> /auth/logout
-authRouter.get("/logout", (req, res) => {
+authRouter.get("/logout", authControllers.getLogout);
 
-});
-
-export default authRouter;
+module.exports = authRouter;

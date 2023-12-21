@@ -1,12 +1,17 @@
-import { resolve } from 'path';
-const __dirname = resolve();
-const mainControllers = {
-  getHome: (req, res) => {
-    // MISSION#5
-    //EN la mission 5 usaremos res.render para renderizar una plantill
-    console.log("La ruta relativa es," + __dirname);
-    res.render("pages/index.ejs",{});
-  }
-}
+const LicenceService = require('../services/licenceService');
+const ProductService = require('../services/productService');
 
-export { mainControllers };
+module.exports = {
+  getHome: async(req, res) => {
+    const licences = await LicenceService.getAllLicences();
+    const products = await ProductService.getAllProducts();
+    res.render('index',{
+      collections: licences.data,
+      items: products.data,
+      enableGlide: true
+    });
+  },
+  getContact: (req,res) => {
+    res.render('shop/contact');
+  }
+};

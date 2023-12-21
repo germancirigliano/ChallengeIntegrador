@@ -56,6 +56,11 @@ german esta clase interfiere con mi pagina, es muy generalista, esta tomando tod
 comentado por el mismo motivo que img :D 
 */
 
+.contenido header {
+  background-color: var(--dark-bg-solid);
+  padding: var(--spacing-36);
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;

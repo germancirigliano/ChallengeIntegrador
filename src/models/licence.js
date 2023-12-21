@@ -1,55 +1,27 @@
-import {sequelize} from '../config/conn.js';
-import {Model, INTEGER, STRING} from 'sequelize';
+const { conn } = require('../config/conn');
 
-class Licence extends Model {};
+const getAllLicence = async () => {
+  try {
+    const [rows] = await conn.query('SELECT * FROM licence;');
+    const response = {
+      isError: false,
+      data: rows
+    };
 
-Licence.init(
-   {
-     licence_id:{type:INTEGER,allowNull:false, primaryKey: true},
-     licence_name: {type: STRING, allowNull: false},
-     licence_description: {type: STRING, allowNull:false},  
-     licence_image: {type: STRING, allowNull:true}  
-   }, 
-   { sequelize, 
-     modelName: 'licence',
-     tableName: 'licence', 
-     timestamps: false
-   }
- );
+    return response;
+  } catch (e) {
+    const error = {
+      isError: true,
+      message: `No pudimos recuperar los datos ${e}.`
+    };
 
-const getAllLicence = async() => {
-  let data = await Licence.findAll()
-  .then(licences => licences.map(licence => licence.dataValues))
-  return data;
-}
-
-const getLicence= async(id) =>{
-  const data = await Licence.findOne({where: {id}});
-  return data;
-}
-
-const postLicence= async (data) =>{
-  const result = await Licence.create(data);
-  return result;
-}
-
-const updLicence= async(id,data) =>{
-  const result = await Licence.update(data, {where:{id}})
-  return result[0];
-}
-
-const delLicence= async(id) =>{
-  const result = await Licence.destroy({where:{id}});
-  return result;
+    return error;
+  } finally {
+    await conn.releaseConnection();
+  }
 }
 
 
-const model = {
-  getAllLicence,
-  getLicence,
-  postLicence,
-  updLicence,
-  delLicence
+module.exports = {
+  getAllLicence
 }
-
-export default model;

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title> Edit| Admin | Funkoshop</title>
+    <link rel="stylesheet" type="text/css" href="/css/views/admin/edit.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+  </head>
+<body class="contenido">
+<%- include('./../../partials/header-german') %>
+  <main class="create_main">
+    <section class="create_section">
+        <h1>EDITAR ITEM</h1>
+        <form action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="create_form_top">
+                <div>
+                    <label  for="category">Categoria:</label>
+                    <select class="disabled" name="category" id="category">
+                      <% categories.forEach((category,i)=>{ %>
+                        <option <% if(item.category_id ===i + 1) { %>selected<%} %> value="<%= i+1%>"><%= category.category_name%></option>
+                      <% }); %>
+                    </select>
+                </div>
+                <div>
+                    <label for="licence">Licencia:</label>
+                    <select name="licence" id="licence">
+                      <% licences.forEach((licence, i)=> { %>
+                        <option <% if (item.licence_id===i +1) { %>selected<% } %> value="<%= i+1%>"><%= licence.licence_name%></option>
+                      <% }); %>
+                    </select>
+                </div>
+            </div>
+            <div class="create_form_middle">
+                <label for="">Nombre del producto:</label>
+                <input type="text" name="name" id="name" value="<%= item.product_name%>" required>
+            </div>
+            <textarea name="description" id="description" cols="30" rows="6" required><%= item.product_description%></textarea>
+            <div class="create_form_bottom">
+              <div class="sku">
+                <label for="sku">SKU:</label>
+                <input type="text" name="sku" id="sku" value="<%= item.sku%>" required>
+              </div>
+              <div class="precio">
+                <label for="price">Precio:</label>
+                <span>$</span><input type="text" name="price" id="price" data-type="currency" value="<%= item.price %>">
+              </div>
+              <div class="stock">
+                <label for="">Stock:</label>
+                <input type="text" name="stock" id="stock" value="<%= item.stock %>" required><span>unidades</span>
+              </div>
+            </div>
+            <div class="create_form_bottom">
+                <div class="descuento">
+                    <label for="">Descuento:</label>
+                    <input type="text" name="discount" id="discount" value="<%= item.discount %>" required><span>%</span>
+                </div>
+                <div class="cuotas">
+                    <label for="dues">Cuotas:</label>
+                    <select name="dues" id="dues">
+                      <option <% if (item.dues===0) { %>selected<% } %> value="0">Sin cuotas</option>
+                      <option <% if (item.dues===3) { %>selected<% } %> value="3">3 cuotas s/ interés</option>
+                      <option <% if (item.dues===6) { %>selected<% } %> value="6">6 cuotas s/ interés</option>
+                      <option <% if (item.dues===9) { %>selected<% } %> value="9">9 cuotas s/ interés</option>
+                      <option <% if (item.dues===12) { %>selected<% } %> value="12">12 cuotas s/ interés</option>
+                      <option <% if (item.dues===18) { %>selected<% } %> value="18">18 cuotas s/ interés</option>
+                      <option <% if (item.dues===24) { %>selected<% } %> value="24">24 cuotas s/ interés</option>
+                    </select>
+                </div>
+            </div>
+            <div class="create_form_bottom">
+              <label for="images">Imágenes:</label>
+              <input name="images" class="file" type="file" multiple>
+            </div>
+            <div class="pic">
+              <picture class="pictures">
+                <img class="imagen" width=150 height=150 src="/img<%= item.image_front %>" alt="<%= item.product_name %>">
+                <p class="edit__img-side">Frente</p>
+              </picture>
+              <picture class="pictures">
+                <img class="imagen"  width=150 height=150 src="/img<%= item.image_back %>" alt="<%= item.product_name %> en caja">
+                <p class="edit__img-side">Dorso</p>
+              </picture>
+            </div>
+            <div class="create_form_bottom">
+                <button type="submit">Modificar Producto</button>
+            </div>
+        </form>
+    </section>
+  </main>
+<%- include('./../../partials/footer-german') %>
+</body>
+</html>

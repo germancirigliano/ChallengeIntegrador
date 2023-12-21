@@ -1,95 +1,95 @@
-import {sequelize} from '../config/conn.js';
-import {Model, INTEGER, STRING, DECIMAL, DATE} from 'sequelize';
+const { conn } = require('../config/conn');
 
-class Product extends Model {};
-
-
-   Product.init(
-   {
-     product_id: {type: INTEGER, allowNull: false, primaryKey: true},
-     product_name: {type: STRING, allowNull: false},
-     product_description: {type: STRING, allowNull:false},
-     price: {type: DECIMAL(10,2), allowNull: false},
-     stock: {type:INTEGER, allowNull: false},
-     discount: {type:INTEGER, allowNull:true},
-     sku:{type: STRING, allowNull:false},
-     dues:{type:INTEGER,allowNull:true},
-     image_front:{type:STRING,allowNull:false},
-     image_back:{type:STRING,allowNull:false},
-     create_time:{type:DATE,allowNull:true},
-     licence_id:{type:INTEGER,allowNull:false,
-    references: {
-      model: 'licence',
-      key: 'licence_id'
-    }},
-     category_id:{type:INTEGER,allowNull:false, 
-      references: {
-        model: 'category' ,
-        key: 'category_id'
-      }}
-   }, 
-   { sequelize, 
-     modelName: 'product',
-     tableName: 'product', 
-     timestamps: false
-   }
- );
-   // await Product.sync({force: false,alter:true}); //Crea la tabla si no existe y no hace nada si ya existe. Si existe, pero con valores diferentes le realiza los cambios para que coincida
 
 const getAllProduct = async() => {
-  let data = await Product.findAll()
-  .then(products => products.map(product => product.dataValues))
-  // if (data.length===0) { data = Product.create({
-  //    product_id: 1,
-  //    product_name: 'Baby Yoda Blueball',
-  //    product_description:'Figura funko coleccionable de la saga star wars & the mandalorian',
-  //    price: 1799,
-  //    stock: 5,
-  //    discount: 0,
-  //    sku: 'STW001001',
-  //    dues:0,
-  //    image_front:'p',
-  //    image_back:'s',
-  //    create_time:'2023-10-12 17:30:00',
-  //    licence_id:3,
-  //    category_id: 1
-  //  }) }  ----------USAR ESTO SI NO CARGAN EL SCRIPT DE SQL----------
-  return data;
-}
+  try {
+    const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product INNER JOIN category ON product.category_id = category.category_id) INNER JOIN licence ON product.licence_id = licence.licence_id order by product_id;');
+    const response = {
+      isError: false,
+      data: rows
+    };
 
-const getAllCategory = async() => {
-  let data = await Category.findAll()
-  .then(categories => categories.map(category => category.dataValues))
-  return data;
+    return response;
+  } catch (e) {
+    const error = {
+      isError: true,
+      message: `No pudimos recuperar los datos ${e}.`
+    };
+    return error;
+  }
+  finally{
+    await conn.releaseConnection();
+  }  
 }
 
 const getProduct = async(id) =>{
-  const data = await Product.findOne({where: {id}});
-  return data;
+  try {
+    const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id WHERE ?;', id);
+    return rows;
+  } catch (error) {
+    return {
+      error: true,
+      message: `No pudimos recuperar los datos.` + error
+    }
+  } finally {
+    await conn.releaseConnection();
+  }
 }
 
-const postProduct = async (data) =>{
-  const result = await Product.create(data);
-  return result;
+const postProduct = async (params) =>{
+  try {
+    const [rows] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, licence_id, category_id) VALUES ?;', [params]);
+    const response = {
+      isError: false,
+      data: rows
+    };
+
+    return response;
+  } catch (e) {
+    const error = {
+      isError: true,
+      message: `No pudimos crear los valores seleccionados por: ${e}`
+    };
+
+    return error;
+  } finally {
+    await conn.releaseConnection();
+  }
 }
 
-const updProduct = async(id,data) =>{
-  const result = await Product.update(data, {where:{id}})
-  return result[0];
+const updProduct = async(params,id) =>{
+  try {
+    const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, id]);
+    return rows;
+  } catch (error) {
+    return {
+      error: true,
+      message: 'Hemos encontrado un error: ' + error
+    }
+  } finally {
+    await conn.releaseConnection();
+  }
 }
 
-const delProduct = async(id) =>{
-  const result = await Product.destroy({where:{id}});
-  return result;
+const delProduct = async(params) =>{
+  try {
+    const [rows] = await conn.query('DELETE FROM product WHERE ?;', params);
+    return rows;
+  } catch (error) {
+    return{  
+      error: true,
+      message: 'Hemos encontrado un error' + error
+    }
+    }
+   finally {
+    await conn.releaseConnection();
+  }
 }
 
-
-const model = {
+module.exports = {
   getAllProduct,
   getProduct,
   postProduct,
   updProduct,
   delProduct
-}
-
-export default model;
+};

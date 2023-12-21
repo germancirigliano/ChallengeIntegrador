@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="/css/views/admin/create.css">
+    <title>Admin | Create | Funko Shop</title>
+</head>
+<body class="create_body contenido">
+<%- include('./../../partials/header-german') %>
+      <main class="create_main">
+        <section class="create_section">
+            <h1>CREAR NUEVO ITEM</h1>
+            <form action="/admin/create" method="POST" enctype="multipart/form-data">
+                <div class="create_form_top">
+                    <div>
+                        <label for="category">Categoria:</label>
+                        <select class="disabled" name="category" id="category" required>
+                            <option class="disabled" value="" disabled selected hidden>Seleccionar</option>
+                            <option value="1">Funkos</option>
+                            <option value="2">Remeras</option>
+                            <option value="3">Llaveros</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="licence">Licencia:</label>
+                        <select name="licence" id="licence" required>
+                            <option value="" disabled selected hidden>Seleccionar</option>
+                              <option value="2">Star Wars</option>
+                              <option value="1">Pokemon</option>
+                              <option value="3">Harry Potter</option>
+                              <option value="4">Naruto</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="create_form_middle">
+                    <label for="name">Nombre del producto:</label>
+                    <input type="text" name="name" id="name" placeholder="Kakashi Hatake Shippuden Saga" required>
+                </div>
+                <textarea name="description" id="description" cols="30" rows="30" placeholder="Descripción del producto" required></textarea>
+                <div class="create_form_bottom">
+                  <div class="sku">
+                    <label for="sku">SKU:</label>
+                    <input type="text" placeholder="SSK111AB001" name="sku">
+                  </div>
+                  <div class="precio">
+                    <label for="price">Precio:</label>
+                    <span>$</span><input type="text" placeholder=" 0.000,00" name="price">
+                  </div>
+                  <div class="stock">
+                    <label for="stock">Stock:</label>
+                    <input type="text" placeholder="0" name="stock"><span>unidades</span>
+                  </div>
+                </div>
+                <div class="create_form_bottom">
+                    <div class="descuento">
+                        <label for="discount">Descuento:</label>
+                        <input type="text" placeholder="0" name="discount"><span>%</span>
+                    </div>
+                    <div class="cuotas">
+                        <label for="dues">Cuotas:</label>
+                        <select name="dues" id="">
+                            <option value="0">Sin cuotas</option>
+                            <option value="3">3 cuotas s/ interés</option>
+                            <option value="6">6 cuotas s/ interés</option>
+                            <option value="9">9 cuotas s/ interés</option>
+                            <option value="12">12 cuotas s/ interés</option>
+                            <option value="18">18 cuotas s/ interés</option>
+                            <option value="24">24 cuotas s/ interés</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="create_form_bottom">
+                    <label for="images">Imágenes:</label>
+                    <input name="images" class="file" type="file" multiple>
+                </div>
+                <div class="create_form_bottom">
+                    <button type="submit">Agregar Producto</button>
+                    <button type="button">Limpiar</button>
+                </div>
+            </form>
+        </section>
+      </main>
+  <%- include('./../../partials/footer-german') %>
+</body>
+</html>
