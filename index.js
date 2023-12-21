@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 // const  = path.resolve(__dirname);
 
 //Rutas
@@ -26,11 +26,11 @@ app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, "./src/views/pages"));
 
 // middlewares
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 //Carpeta de estáticos
-app.use(express.static('public'));
+app.use(express.static(path.resolve(__dirname, "public")));
 
 
 //Override que habilita métodos put y delete

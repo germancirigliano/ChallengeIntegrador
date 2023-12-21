@@ -1,6 +1,7 @@
 const ProductService = require('../services/productService.js');
 const LicenceService = require('../services/licenceService.js');
 const CategoryService=  require('../services/categoryService.js');
+const ProductModel = require('../models/products.js');
 
 module.exports = {
   getAdmin: async (req,res) => {
@@ -18,10 +19,21 @@ module.exports = {
     });
   },
   getCreate: async (req,res) => {
-    const product = req.body;
-    const files = req.files;
-    await ProductService.postProduct(product,files);
-    res.redirect('/admin');
+    const productSchema = {
+    product_name: req.body.name,
+    product_description:req.body.description,
+    price: Number(req.body.price),
+    stock: Number(req.body.stock),
+    discount: Number(req.body.discount),
+    sku: req.body.sku,
+    dues: Number(req.body.dues),
+    image_front: '/products/'+req.files[0].filename,
+    image_back: '/products/'+req.files[1].filename,
+    licence_id: Number(req.body.licence),
+    category_id: Number(req.body.category)
+  }
+  await ProductModel.postProduct([Object.values(productSchema)])
+  res.redirect('/admin');
   },
   
   //averiguar de bulkCreate
@@ -32,16 +44,16 @@ module.exports = {
   },
 
   getEditView: async(req,res) =>{
-    const id = req.params.id;
+    const {id} = req.params;
     const {data: categories} = await CategoryService.getAllCategory();
     const {data: licences} = await LicenceService.getAllLicences();
-    const {data} = await ProductService.getProduct(id);
-    console.log(categories,licences,data);
-    // res.render('./admin/edit', {
-    //   item: data[0],
-    //   categories,
-    //   licences
-    // });
+    const [product] = await ProductService.getProduct(id);
+    console.log(product);
+    res.render('./admin/edit', {
+      item: product,
+      categories,
+      licences
+    });
   },
   updProduct: async(req,res) =>{
     const id = req.params.id;
@@ -51,8 +63,10 @@ module.exports = {
     res.redirect('/admin');
   },
   delProduct: async(req,res) =>{
-    const id = req.params.id;
-    await ProductService.delProduct(id);
-    res.redirect('/admin');
+    const {id} = req.body;
+    res.send('Quieres borrar el item: ' + id)
+    // const id = req.params.id;
+    // await ProductService.delProduct(id);
+    // res.redirect('/admin');
   },
 };

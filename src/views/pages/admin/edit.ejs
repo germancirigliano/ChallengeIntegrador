@@ -11,7 +11,7 @@
   <main class="create_main">
     <section class="create_section">
         <h1>EDITAR ITEM</h1>
-        <form action="" method="POST" enctype="application/x-www-form-urlencoded">
+        <form action="/admin/edit/<%= item.product_id %>?_method=PUT" method="POST" enctype="application/x-www-form-urlencoded">
             <div class="create_form_top">
                 <div>
                     <label  for="">Categoria:</label>
@@ -71,12 +71,14 @@
                 <label for="">Imágenes:</label>
                 <input class="file" type="file" name="image" id="img" multiple>
             </div>
-            <div>
-              <picture>
-                <img width=150 height=150 src="/img<%= item.image_front %>" alt="<%= item.product_name %>">
+            <div class="pic">
+              <picture class="pictures">
+                <img class="imagen" width=150 height=150 src="/img<%= item.image_front %>" alt="<%= item.product_name %>">
+                <p class="edit__img-side">Frente</p>
               </picture>
-              <picture>
-                <img  width=150 height=150 src="/img<%= item.image_back %>" alt="<%= item.product_name %> en caja">
+              <picture class="pictures">
+                <img class="imagen"  width=150 height=150 src="/img<%= item.image_back %>" alt="<%= item.product_name %> en caja">
+                <p class="edit__img-side">Dorso</p>
               </picture>
             </div>
             <div class="create_form_bottom">

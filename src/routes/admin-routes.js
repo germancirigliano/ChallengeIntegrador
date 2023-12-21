@@ -1,14 +1,14 @@
 const express = require('express');
 const adminController = require('../controllers/admin-controllers.js');
 const adminRouter = express.Router();
-
+const upload = require('../middlewares/uploadfiles.js')
 
 // - GET -> /admin VISTA DE ADMIN
 adminRouter.get("/", adminController.getAdmin);
 // - GET -> /admin/create VISTA PARA CREAR UN NUEVO ITEM O PRODUCTO
 adminRouter.get("/create", adminController.getCreateView);
 // - POST -> /admin/create CREACIÓN DEL NUEVO ITEM O PRODUCTO
-adminRouter.post("/create", adminController.getCreate);
+adminRouter.post("/create", upload.array('images', 2),adminController.getCreate);
 
 //Ver bulkcreate
 

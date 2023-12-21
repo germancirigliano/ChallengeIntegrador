@@ -40,6 +40,15 @@ div input{
     border-bottom: 1px solid var(--colorado-solid);
     outline: none;
 }
+
+div span {
+    border: none;
+        outline: none;
+        font-size: 15px;
+        margin-right: 10px;
+        color: var(--negro-solid);
+}
+
 div input::placeholder,textarea::placeholder{
     color: #B9B9B9;
 }

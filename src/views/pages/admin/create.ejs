@@ -12,54 +12,55 @@
       <main class="create_main">
         <section class="create_section">
             <h1>CREAR NUEVO ITEM</h1>
-            <form method="POST" action="/admin/create">
+            <form action="/admin/create" method="POST" enctype="multipart/form-data">
                 <div class="create_form_top">
                     <div>
-                        <label for="">Categoria:</label>
-                        <select class="disabled" name="" id="">
+                        <label for="category">Categoria:</label>
+                        <select class="disabled" name="category" id="category" required>
                             <option class="disabled" value="" disabled selected hidden>Seleccionar</option>
-                            <% categories.forEach((category,i)=>{ %>
-                              <option value="<%= i+1%>"><%= category.category_name%></option>
-                            <% }); %>
+                            <option value="1">Funkos</option>
+                            <option value="2">Remeras</option>
+                            <option value="3">Llaveros</option>
                         </select>
                     </div>
                     <div>
-                        <label for="">Licencia:</label>
-                        <select name="" id="">
+                        <label for="licence">Licencia:</label>
+                        <select name="licence" id="licence" required>
                             <option value="" disabled selected hidden>Seleccionar</option>
-                            <% licences.forEach((licence,i)=>{ %>
-                              <option value="<%= i+1 %>"><%= licence.licence_name%></option>
-                            <% }); %>
+                              <option value="2">Star Wars</option>
+                              <option value="1">Pokemon</option>
+                              <option value="3">Harry Potter</option>
+                              <option value="4">Naruto</option>
                         </select>
                     </div>
                 </div>
                 <div class="create_form_middle">
-                    <label for="">Nombre del producto:</label>
+                    <label for="name">Nombre del producto:</label>
                     <input type="text" name="name" id="name" placeholder="Kakashi Hatake Shippuden Saga" required>
                 </div>
                 <textarea name="description" id="description" cols="30" rows="30" placeholder="Descripción del producto" required></textarea>
                 <div class="create_form_bottom">
                   <div class="sku">
-                    <label for="">SKU:</label>
-                    <input type="text" placeholder="SSK111AB001">
+                    <label for="sku">SKU:</label>
+                    <input type="text" placeholder="SSK111AB001" name="sku">
                   </div>
                   <div class="precio">
-                    <label for="">Precio:</label>
-                    <input type="text" placeholder="$ 0.000,00">
+                    <label for="price">Precio:</label>
+                    <span>$</span><input type="text" placeholder=" 0.000,00" name="price">
                   </div>
                   <div class="stock">
-                    <label for="">Stock:</label>
-                    <input type="text" placeholder="0">
+                    <label for="stock">Stock:</label>
+                    <input type="text" placeholder="0" name="stock"><span>unidades</span>
                   </div>
                 </div>
                 <div class="create_form_bottom">
                     <div class="descuento">
-                        <label for="">Descuento:</label>
-                        <input type="text" placeholder="0%">
+                        <label for="discount">Descuento:</label>
+                        <input type="text" placeholder="0" name="discount"><span>%</span>
                     </div>
                     <div class="cuotas">
-                        <label for="">Cuotas:</label>
-                        <select name="" id="">
+                        <label for="dues">Cuotas:</label>
+                        <select name="dues" id="">
                             <option value="0">Sin cuotas</option>
                             <option value="3">3 cuotas s/ interés</option>
                             <option value="6">6 cuotas s/ interés</option>
@@ -71,8 +72,8 @@
                     </div>
                 </div>
                 <div class="create_form_bottom">
-                    <label for="">Imágenes:</label>
-                    <input class="file" type="file" multiple>
+                    <label for="images">Imágenes:</label>
+                    <input name="images" class="file" type="file" multiple>
                 </div>
                 <div class="create_form_bottom">
                     <button type="submit">Agregar Producto</button>

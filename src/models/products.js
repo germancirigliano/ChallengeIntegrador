@@ -3,7 +3,7 @@ const { conn } = require('../config/conn');
 
 const getAllProduct = async() => {
   try {
-    const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product INNER JOIN category ON product.category_id = category.category_id) INNER JOIN licence ON product.licence_id = licence.licence_id;');
+    const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product INNER JOIN category ON product.category_id = category.category_id) INNER JOIN licence ON product.licence_id = licence.licence_id order by product_id;');
     const response = {
       isError: false,
       data: rows
@@ -22,22 +22,15 @@ const getAllProduct = async() => {
   }  
 }
 
-const getProduct = async(params) =>{
+const getProduct = async(id) =>{
   try {
-    const [rows] = await conn.query('SELECT product.*, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id WHERE ?;', params);
-    const response = {
-      isError: false,
-      data: rows
-    };
-
-    return response;
-  } catch (e) {
-    const error = {
-      isError: true,
-      message: `No pudimos recuperar los datos.`
-    };
-
-    return error;
+    const [rows] = await conn.query('SELECT * FROM product WHERE product_id = ?;', id);
+    return rows;
+  } catch (error) {
+    return {
+      error: true,
+      message: `No pudimos recuperar los datos.` + error
+    }
   } finally {
     await conn.releaseConnection();
   }

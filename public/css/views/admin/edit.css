@@ -25,7 +25,7 @@
 div select{
     width: 125px;
     height: 25px;
-    border: 1px solid var(--negro-solid);
+    border: 2px solid var(--negro-solid);
     border-radius: 5px;
     color:var(--negro-solid)
 }
@@ -38,9 +38,37 @@ div label{
 }
 div input{
     border: none;
-    border-bottom: 1px solid var(--colorado-solid);
+    border-bottom: 2px solid var(--colorado-solid);
     outline: none;
 }
+div span {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    margin-right: 10px;
+    color: var(--negro-solid);
+}
+
+.pic {
+    display: flex;
+    text-align: center;
+}
+
+.imagen {
+    border-bottom: 2px solid var(--colorado-solid);
+}
+
+.pictures {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.pictures .p {
+    font-size: 15px;
+}
+
 div input::placeholder,textarea::placeholder{
     color: var(--negro-solid);
 }
